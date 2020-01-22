@@ -10,10 +10,9 @@ import matplotlib.pylab as plt
 # クラス
 class SVM():
   #-------------------
-  # 学習データの初期化
+  # 1. 学習データの初期化
   # X: 入力データ（データ数×次元数のnumpy.array）
   # Y: 出力データ（データ数×1のnumpy.array）
-  # spptThre: サポートベクトルの閾値（スカラー、デフォルトでは0.1）
   # kernelFunc: kernelFuncクラスのインスタンス    
   def __init__(self, X, Y, spptThre=0.1, kernelFunc=None):
 
@@ -23,9 +22,11 @@ class SVM():
     # 学習データの設定
     self.X = X
     self.Y = Y
-    self.dNum = self.X.shape[0]
-    self.xDim = self.X.shape[1]
-    self.spptThre = spptThre
+    self.dNum = X.shape[0]  # 学習データ数
+    self.xDim = X.shape[1]  # 入力の次元数    
+    
+    # サポートベクトルの閾値設定
+    self.spptThre = 0.1
   #-------------------
 
   #-------------------
