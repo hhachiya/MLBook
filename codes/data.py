@@ -125,7 +125,7 @@ class classification:
       X = np.random.multivariate_normal([0.5, 1], cov, int(dNum/2))
       X = np.concatenate([X, np.random.multivariate_normal([-1, -1], cov, int(dNum/4))],axis=0)
       X = np.concatenate([X, np.random.multivariate_normal([2, 2], cov, int(dNum/4))],axis=0)
-      Y = np.concatenate([self.negLabel*np.oness([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
+      Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
       
       # データのインデックスをシャッフル
       randInds = np.random.permutation(dNum)
