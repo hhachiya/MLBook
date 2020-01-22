@@ -3,47 +3,47 @@ import numpy as np
 
 class kernelFunc():
   #-------------------
-  # kernelType: üŒ`ƒ‚ƒfƒ‹(0), ƒKƒEƒXƒJ[ƒlƒ‹(1)A‘½€®ƒJ[ƒlƒ‹(2)
-  # kernelParam: ƒJ[ƒlƒ‹‚Ìì¬‚É—p‚¢‚éƒpƒ‰ƒ[ƒ^iƒXƒJƒ‰[j  
+  # kernelType: ç·šå½¢ãƒ¢ãƒ‡ãƒ«(0), ã‚¬ã‚¦ã‚¹ã‚«ãƒ¼ãƒãƒ«(1)ã€å¤šé …å¼ã‚«ãƒ¼ãƒãƒ«(2)
+  # kernelParam: ã‚«ãƒ¼ãƒãƒ«ã®ä½œæˆã«ç”¨ã„ã‚‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ï¼ˆã‚¹ã‚«ãƒ©ãƒ¼ï¼‰  
   def __init__(self, kernelType=0, kernelParam=1):
-    # ƒJ[ƒlƒ‹ŠÖ”‚Ìİ’è  
+    # ã‚«ãƒ¼ãƒãƒ«é–¢æ•°ã®è¨­å®š  
     kernelFuncs = [self.linear, self.gauss, self.poly]
     self.createMatrix = kernelFuncs[kernelType]
     self.kernelParam = kernelParam
   #-------------------
 
   #-------------------
-  # üŒ`ƒ‚ƒfƒ‹
+  # ç·šå½¢ãƒ¢ãƒ‡ãƒ«
   def linear(self,X1,X2):
     return np.matmul(X1,X2.T)
   #-------------------
     
   #-------------------
-  # ƒKƒEƒXƒJ[ƒlƒ‹
-  # X1F“ü—Íƒf[ƒ^iƒf[ƒ^”~ŸŒ³”‚Ìnumpy.arrayj
-  # X2F“ü—Íƒf[ƒ^iƒf[ƒ^”~ŸŒ³”‚Ìnumpy.arrayj
+  # ã‚¬ã‚¦ã‚¹ã‚«ãƒ¼ãƒãƒ«
+  # X1ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ‡ãƒ¼ã‚¿æ•°Ã—æ¬¡å…ƒæ•°ã®numpy.arrayï¼‰
+  # X2ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ‡ãƒ¼ã‚¿æ•°Ã—æ¬¡å…ƒæ•°ã®numpy.arrayï¼‰
   def gauss(self,X1,X2):
     X1Num = len(X1)
     X2Num = len(X2)
     
-    # X1‚ÆX2‚Ì‘SƒyƒAŠÔ‚Ì‹——£‚ÌŒvZ
+    # X1ã¨X2ã®å…¨ãƒšã‚¢é–“ã®è·é›¢ã®è¨ˆç®—
     X1 = np.tile(np.expand_dims(X1.T,axis=2),[1,1,X2Num])
     X2 = np.tile(np.expand_dims(X2.T,axis=1),[1,X1Num,1])
     dist = np.sum(np.square(X1 - X2),axis=0)
     
-    # ƒOƒ‰ƒ€s—ñiX1‚Ìƒf[ƒ^”~X2‚Ìƒf[ƒ^”j
+    # ã‚°ãƒ©ãƒ è¡Œåˆ—ï¼ˆX1ã®ãƒ‡ãƒ¼ã‚¿æ•°Ã—X2ã®ãƒ‡ãƒ¼ã‚¿æ•°ï¼‰
     K = np.exp(-dist / (2 * (self.kernelParam ** 2)))
     
     return K
   #-------------------
   
   #-------------------  
-  # ‘½€®ƒJ[ƒlƒ‹
-  # X1F“ü—Íƒf[ƒ^iƒf[ƒ^”~ŸŒ³”‚Ìnumpy.arrayj
-  # X2F“ü—Íƒf[ƒ^iƒf[ƒ^”~ŸŒ³”‚Ìnumpy.arrayj
+  # å¤šé …å¼ã‚«ãƒ¼ãƒãƒ«
+  # X1ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ‡ãƒ¼ã‚¿æ•°Ã—æ¬¡å…ƒæ•°ã®numpy.arrayï¼‰
+  # X2ï¼šå…¥åŠ›ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ‡ãƒ¼ã‚¿æ•°Ã—æ¬¡å…ƒæ•°ã®numpy.arrayï¼‰
   def poly(self,X1,X2):
 
-    # ƒOƒ‰ƒ€s—ñiX1‚Ìƒf[ƒ^”~X2‚Ìƒf[ƒ^”j
+    # ã‚°ãƒ©ãƒ è¡Œåˆ—ï¼ˆX1ã®ãƒ‡ãƒ¼ã‚¿æ•°Ã—X2ã®ãƒ‡ãƒ¼ã‚¿æ•°ï¼‰
     K = (np.matmul(X1,X2.T) + 1)**self.kernelParam
 
     return K
