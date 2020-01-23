@@ -31,26 +31,26 @@ Xte = (Xte-xMean)/xStd
 #-------------------
 
 #-------------------
-# 3.5 カーネル関数の作成
+# 4. カーネル関数の作成
 myKernel = kf.kernelFunc(kernelType=1, kernelParam=1)
 #-------------------
 
 #-------------------
-# 4. SVMのモデルの学習
+# 5. SVMのモデルの学習
 myModel = svm.SVM(Xtr,Ytr,kernelFunc=myKernel)
 myModel.trainSoft(0.5)
 #-------------------      
 
 #-------------------
-# 5. SVMモデルの評価      
+# 6. SVMモデルの評価      
 print(f"モデルパラメータ：\nw={myModel.w}\nb={myModel.b}")
 print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 
 #-------------------
-# 6. データと分類境界f(x)のプロット
+# 7. データと分類境界f(x)のプロット
 myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
   title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f}, 評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
-  fName=f"../results/SVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.png",
+  fName=f"../results/kernelSVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.png",
   isLinePlot=True)
 #-------------------
