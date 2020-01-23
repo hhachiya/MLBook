@@ -51,10 +51,7 @@ print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 
 #-------------------
-# 5. データと分類境界f(x)のプロット
+# 5. 真値と予測値のプロット
 if Xtr.shape[1] == 2:
   myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/LDA_result_train_{myData.dataType}.png")
-  #myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/LDA_result_train_databalancing_{myData.dataType}.png")
-  
-  #myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName="")
 #-------------------

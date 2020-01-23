@@ -6,10 +6,12 @@ class kernelFunc():
   # kernelType: 線形モデル(0), ガウスカーネル(1)、多項式カーネル(2)
   # kernelParam: カーネルの作成に用いるパラメータ（スカラー）  
   def __init__(self, kernelType=0, kernelParam=1):
+    self.kernelType = kernelType
+    self.kernelParam = kernelParam
+
     # カーネル関数の設定  
     kernelFuncs = [self.linear, self.gauss, self.poly]
     self.createMatrix = kernelFuncs[kernelType]
-    self.kernelParam = kernelParam
   #-------------------
 
   #-------------------

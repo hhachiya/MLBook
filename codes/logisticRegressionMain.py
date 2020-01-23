@@ -52,10 +52,9 @@ for ite in range(1001):
 #-------------------
 
 #-------------------
-# 5. 学習データと、獲得した回帰直線f(x)のプロット
+# 5. 真値と予測値のプロット
 if Xtr.shape[1] == 1:
-  #myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.png")
-  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel)  
+  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.png")
 elif Xtr.shape[1] == 2:
   myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.png")
 #-------------------
