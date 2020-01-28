@@ -133,7 +133,66 @@ class classification:
       self.Y = Y[randInds]  
       self.xLabel = "$x_1$"
       self.yLabel = "$x_2$"
-  #-------------------
+      
+    # トイデータ）分類境界がアルファベッドのCの形をしている場合（ノイズあり）
+    elif dataType == 6:
+      dNum = 120
+      np.random.seed(1)
+          
+      cov1 = [[1,-0.8], [-0.8, 1]]
+      cov2 = [[1,0.8], [0.8, 1]]
+
+      X = np.random.multivariate_normal([0.5, 1], cov1, int(dNum/2))
+      X = np.concatenate([X, np.random.multivariate_normal([-1, -1], cov1, int(dNum/4))],axis=0)
+      X = np.concatenate([X, np.random.multivariate_normal([-1, 4], cov2, int(dNum/4))],axis=0)
+      Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
+      
+      # ノイズ
+      X = np.concatenate([X, np.array([[-1.5,-1.5],[-1,-1]])],axis=0)
+      Y = np.concatenate([Y, self.negLabel*np.ones([2,1])],axis=0)
+      dNum += 2
+      
+      randInds = np.random.permutation(dNum)
+      self.X = X[randInds]
+      self.Y = Y[randInds]
+        
+      self.xLabel = "$x_1$"
+      self.yLabel = "$x_2$"
+      #-------------------
+      
+    # MNIST
+    elif dataType == 7:
+      dataPath = "../data/MNIST"
+      
+      #-------------------
+      # 学習用
+      # 入力画像
+      fp = gzip.open(os.path.join(dataPath,'train-images-idx3-ubyte.gz'),'rb')
+      data = np.frombuffer(fp.read(),np.uint8,offset=16)
+      self.Xtr = np.reshape(data,[-1,28*28])/255
+        
+      # ラベル
+      fp = gzip.open(os.path.join(dataPath,'train-labels-idx1-ubyte.gz'),'rb')
+      self.Ytr = np.frombuffer(fp.read(),np.uint8,offset=8)
+      #-------------------
+      
+      #-------------------
+      # 評価用
+      # 入力画像
+      fp = gzip.open(os.path.join(dataPath,'t10k-images-idx3-ubyte.gz'),'rb')
+      data = np.frombuffer(fp.read(),np.uint8,offset=16)
+      self.Xte = np.reshape(data,[-1,28*28])/255
+      
+      # ラベル
+      fp = gzip.open(os.path.join(dataPath,'t10k-labels-idx1-ubyte.gz'),'rb')
+      self.Yte = np.frombuffer(fp.read(),np.uint8,offset=8)  
+      #-------------------
+
+      #-------------------
+      # one-hot表現
+      self.Ttr = np.eye(10)[self.Ytr]
+      self.Tte = np.eye(10)[self.Yte]
+      #-------------------
 ####################
 
 ####################

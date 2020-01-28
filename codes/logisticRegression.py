@@ -33,16 +33,16 @@ class logisticRegression():
 
     # 予測の差の計算
     P, _ = self.predict(self.X)
-    error = (self.Y - P)
+    error = (P - self.Y)
     
     # パラメータの更新
-    grad = -1/len(self.Z)*np.matmul(self.Z.T,error)
-    v = np.vstack([self.w,self.b])    
+    grad = 1/self.dNum*np.matmul(self.Z.T,error)
+    v = np.concatenate([self.w,self.b],axis=0)
     v -= alpha * grad
     
     # パラメータw, bの決定
     self.w = v[:-1]
-    self.b = v[-1]
+    self.b = v[[-1]]
   #-------------------
 
   #-------------------
@@ -158,20 +158,21 @@ class logisticRegression():
 
   #------------------- 
   # 8. 学習と評価損失のプロット
-  # trLoss:学習の損失
-  # teLoss:評価の損失
+  # trEval:学習の損失
+  # teEval:評価の損失
+  # yLabel:y軸のラベル（文字列）
   # fName:画像の保存先（文字列）
-  def plotLoss(self, trLoss, teLoss,fName=""):
+  def plotEval(self,trEval,teEval,ylabel="損失",fName=""):
     fig = plt.figure(figsize=(6,4),dpi=100)
     
     # 損失のプロット
-    plt.plot(trLoss,'b',label="学習の損失")
-    plt.plot(teLoss,'r',label="評価の損失")
+    plt.plot(trEval,'b',label="学習")
+    plt.plot(teEval,'r',label="評価")
     
     # 各軸の範囲とラベルの設定
     plt.xlabel("反復",fontSize=14)
-    plt.ylabel("損失",fontSize=14)
-    plt.ylim([0,0.8])
+    plt.ylabel(ylabel,fontSize=14)
+    plt.ylim([0,1.1])
     plt.legend()
     
     # グラフの表示またはファイルへの保存

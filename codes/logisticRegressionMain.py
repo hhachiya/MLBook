@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.classification(negLabel=0,posLabel=1)
-myData.makeData(dataType=2)
+myData.makeData(dataType=5)
 #-------------------
 
 #-------------------
@@ -48,7 +48,7 @@ for ite in range(1001):
     print("----------------")
     
   # モデルパラメータの更新
-  myModel.update(1)
+  myModel.update(alpha=1)
 #-------------------
 
 #-------------------

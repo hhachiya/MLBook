@@ -5,12 +5,12 @@ import kernelSVM as svm
 import data
 import matplotlib.pylab as plt
 
-kernelType = 1
+kernelType = 2
 
 #-------------------
 # 1. データの作成
 myData = data.classification(negLabel=-1.0,posLabel=1.0)
-myData.makeData(dataType=2)
+myData.makeData(dataType=4)
 #-------------------
 
 #-------------------
@@ -81,12 +81,14 @@ for paramInd in range(len(kernelParams)):
 # 手順4) 平均正解率が最大のパラメータ
 selectedParam = kernelParams[np.argmax(np.mean(accuracies,axis=1))]
 print(f"選択したパラメータ:{selectedParam}")
+#-------------------
 
-# 正解率のプロット
+#-------------------
+# 3.75 正解率のプロット
 plt.plot(kernelParams,np.mean(accuracies,axis=1),'r-o',lineWidth=2)
 plt.xlabel("カーネルパラメータ",fontSize=14)
 plt.ylabel("推定した正解率",fontSize=14)
-plt.savefig(f"../results/kernelSVM_CV_{myData.dataType}_{kernelType}_{str(selectedParam).replace('.','')}.png")
+plt.savefig(f"../results/kernelSVM_CV_{myData.dataType}_{kernelType}.png")
 #-------------------
 
 #-------------------
