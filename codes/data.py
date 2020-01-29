@@ -6,8 +6,36 @@ import pandas as pd
 import re
 import gzip
 import pdb
+from sklearn import datasets
 
+####################
+# 教師なしデータ用のクラス
+class unsupervised:
+  #-------------------
+  # パスの設定
+  def __init__(self):
+    self.path = "../data"
+  #-------------------
+  #-------------------
+  # データの作成
+  # dataType: データの種類（整数スカラー）
+  def makeData(self,dataType=1):  
+    self.dataType = dataType
+    
+    # iris
+    if dataType == 1:
+      self.labels = ["がく長","がく幅","花びら長","花びら幅"]
+    
+      iris = datasets.load_iris()
+      self.X = iris.data      
+    
+    # 物件価格）説明変数:居住面積,車庫面積,全部屋数
+    elif dataType == 2:
+      self.labels = ["GrLivArea","GarageArea","TotRmsAbvGrd"]
 
+      data = pd.read_csv(os.path.join(self.path,"house-prices-advanced-regression-techniques/train.csv"))
+      self.X = data[(data['MSSubClass']==30)|(data['MSSubClass']==60)][[self.labels[0],self.labels[1],self.labels[2]]].values
+      
 ####################
 # 回帰デモデータ用のクラス
 class regression:
@@ -161,30 +189,28 @@ class classification:
       #-------------------
       
     # MNIST
-    elif dataType == 7:
-      dataPath = "../data/MNIST"
-      
+    elif dataType == 7:      
       #-------------------
       # 学習用
       # 入力画像
-      fp = gzip.open(os.path.join(dataPath,'train-images-idx3-ubyte.gz'),'rb')
+      fp = gzip.open(os.path.join(self.path,'MNIST/train-images-idx3-ubyte.gz'),'rb')
       data = np.frombuffer(fp.read(),np.uint8,offset=16)
       self.Xtr = np.reshape(data,[-1,28*28])/255
         
       # ラベル
-      fp = gzip.open(os.path.join(dataPath,'train-labels-idx1-ubyte.gz'),'rb')
+      fp = gzip.open(os.path.join(self.path,'MNIST/train-labels-idx1-ubyte.gz'),'rb')
       self.Ytr = np.frombuffer(fp.read(),np.uint8,offset=8)
       #-------------------
       
       #-------------------
       # 評価用
       # 入力画像
-      fp = gzip.open(os.path.join(dataPath,'t10k-images-idx3-ubyte.gz'),'rb')
+      fp = gzip.open(os.path.join(self.path,'MNIST/t10k-images-idx3-ubyte.gz'),'rb')
       data = np.frombuffer(fp.read(),np.uint8,offset=16)
       self.Xte = np.reshape(data,[-1,28*28])/255
       
       # ラベル
-      fp = gzip.open(os.path.join(dataPath,'t10k-labels-idx1-ubyte.gz'),'rb')
+      fp = gzip.open(os.path.join(self.path,'MNIST/t10k-labels-idx1-ubyte.gz'),'rb')
       self.Yte = np.frombuffer(fp.read(),np.uint8,offset=8)  
       #-------------------
 
