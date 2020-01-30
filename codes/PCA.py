@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
-import pdb
 
 # クラス
 class PCA:
@@ -16,7 +15,7 @@ class PCA:
   #-------------------
 
   #-------------------
-  # 2. 次元削減
+  # 2. 主成分分析を用いた次元削減
   # lowerDim: 低次元空間の次元数（整数スカラー）
   def reduceDim(self, lowerDim):
     self.lowerDim = lowerDim
@@ -109,7 +108,7 @@ class PCA:
   
   #-------------------
   # 5. 寄与率と累積寄与率の計算
-  def contRatio(self):
+  def compRatio(self):
 
     # 寄与率の計算
     contRatio = self.L/np.sum(self.L)*100
@@ -122,7 +121,7 @@ class PCA:
 
   #-------------------
   # 6. 主成分負荷量の計算
-  def PCL(self):
+  def compLoading(self):
     # 特徴量Xと主成分得点Fの各ペア間の相関係数
     Z=np.concatenate([self.X,self.F],axis=1)
     PCL = np.corrcoef(Z.T,bias=1)[:self.X.shape[1],-self.F.shape[1]:]    
