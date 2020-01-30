@@ -14,7 +14,7 @@ sumRewards = []
 epsilon = 0.5
 
 # 状態の分割数
-nSplit=500
+nSplit=50
 
 # 反復回数
 nIte = 50001
@@ -66,7 +66,7 @@ for episode in np.arange(nIte):
   agent.close()
 
   # 13. 割引報酬和とQ関数のプロット
-  if not episode%1000:
-    agent.plotEval(sumRewards,fName=f"../results/Qlearning_sumRewards_{nSplit}_{episode}.png")
-    agent.plotModel2D(xLabel="位置",yLabel="速度",fName=f"../results/Qlearning_Qtable_{nSplit}_{episode}.png")
+  if not episode%5000:
+    agent.plotEval(sumRewards,fName=f"../results/Qlearning_sumRewards_{nSplit}_{nIte}.png")
+    agent.plotModel2D(xLabel="位置",yLabel="速度",fName=f"../results/Qlearning_Qtable_{nSplit}_{nIte}.png")
 #------------------
