@@ -3,28 +3,28 @@ import pandas as pd
 import matplotlib.pylab as plt
 
 #-------------------
-# 1. ƒf[ƒ^‚Ì“Ç‚İ‚İ
+# 1. ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
 data = pd.read_csv('../data/house-prices-advanced-regression-techniques/train.csv')
 #-------------------
 
 #-------------------
-# 2. ƒvƒƒbƒg 
+# 2. ãƒ—ãƒ­ãƒƒãƒˆ 
 
-# figure‚Ì‰Šú‰»
+# figureã®åˆæœŸåŒ–
 fig = plt.figure()
 
-ax=fig.add_subplot(1,1,1)  #ƒOƒ‰ƒt‚ÌˆÊ’uw’è
+ax=fig.add_subplot(1,1,1)  #ã‚°ãƒ©ãƒ•ã®ä½ç½®æŒ‡å®š
 
-# MSSubClass=30‚Ì‚ÌLotArea‘ÎSalePrice‚ÌU•z}
+# MSSubClass=30ã®æ™‚ã®LotAreaå¯¾SalePriceã®æ•£å¸ƒå›³
 ax.plot(data[data['MSSubClass']==30]['GrLivArea'],data[data['MSSubClass']==30]['SalePrice'],'.',label="1-Story 1945 & Older")
 
-# MSSubClass=60‚Ì‚ÌLotArea‘ÎSalePrice‚ÌU•z}
+# MSSubClass=60ã®æ™‚ã®LotAreaå¯¾SalePriceã®æ•£å¸ƒå›³
 ax.plot(data[data['MSSubClass']==60]['GrLivArea'],data[data['MSSubClass']==60]['SalePrice'],'.',label="2-Story 1946 & Newer")
 
-ax.set_xlabel('GrLivArea')  # x²‚Ìƒ‰ƒxƒ‹
-ax.set_ylabel('SalePrice')  # y²‚Ìƒ‰ƒxƒ‹
-ax.legend()  # –}—á
+ax.set_xlabel('GrLivArea')  # xè»¸ã®ãƒ©ãƒ™ãƒ«
+ax.set_ylabel('SalePrice')  # yè»¸ã®ãƒ©ãƒ™ãƒ«
+ax.legend()  # å‡¡ä¾‹
 
-fig.tight_layout()  # ƒOƒ‰ƒtŠÔ‚ÉŒ„ŠÔ‚ğ‚ ‚¯‚é
-plt.show()  # ƒOƒ‰ƒt‚Ì•\¦
+fig.tight_layout()  # ã‚°ãƒ©ãƒ•é–“ã«éš™é–“ã‚’ã‚ã‘ã‚‹
+plt.show()  # ã‚°ãƒ©ãƒ•ã®è¡¨ç¤º
 #-------------------

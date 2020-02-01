@@ -8,46 +8,43 @@ class housePriceData:
   # 1. コンストラクタ
   # path: ファイルのパス（文字列）
   def __init__(self, path):
-    self.data = pd.read_csv(datapath)  # dataframeの読み込み
+    self.data = pd.read_csv(path)  # dataframeの読み込み
   #-------------------
   
   #-------------------
-  # 2. 建物等級（MSSubClass）を限定した散布図をプロットするメソッド
-  # nrow: 行数（整数スカラー）
-  # xattri: x軸のデータの種類（文字列）
-  # yattri: y軸のデータの種類（文字列）
+  # 2. 建物等級（MSSubClass）を限定した散布図（GrLivArea vs. SalePrice）をプロットするメソッド
   # titles: タイトル（グラフ数のリスト）
-  # classes: 建物等級（グラフ数のリスト）
-  def plotScatterMSSubClass(self, nrow, xattri, yattri, titles, classes):
+  # levels: 建物等級（グラフ数のリスト）
+  def plotScatter(self, titles, levels):
   
     # figureの初期化
     fig = plt.figure()
 
     # x軸とy軸の範囲計算
-    xrange = [np.min(self.data[xattri].values),np.max(self.data[xattri].values)]
-    yrange = [np.min(self.data[yattri].values),np.max(self.data[yattri].values)]
+    xrange = [np.min(self.data['GrLivArea'].values),np.max(self.data['GrLivArea'].values)]
+    yrange = [np.min(self.data['SalePrice'].values),np.max(self.data['SalePrice'].values)]
     
     # 列数の計算
-    ncol = int(len(titles)/nrow)
+    ncol = int(len(titles)/2)
     
     # 各グラフのプロット
-    for ind in range(len(titles)):
+    for ind in np.arange(len(titles)):
      
       # グラフの位置を設定
-      ax=fig.add_subplot(nrow,ncol,ind+1)
+      ax=fig.add_subplot(2,ncol,ind+1)
       
       # タイトルの設定
       ax.set_title(titles[ind])
       
       # 散布図のプロット
-      ax.plot(self.data[self.data['MSSubClass']==classes[ind]][xattri].values,
-          self.data[self.data['MSSubClass']==classes[ind]][yattri].values,'.')
+      ax.plot(self.data[self.data['MSSubClass']==levels[ind]]['GrLivArea'].values,
+          self.data[self.data['MSSubClass']==levels[ind]]['SalePrice'].values,'.')
       
       # 各軸の範囲とラベルの設定
       ax.set_xlim([xrange[0], xrange[1]])
       ax.set_ylim([yrange[0], yrange[1]])
-      ax.set_xlabel(xattri)
-      ax.set_ylabel(yattri)
+      ax.set_xlabel('GrLivArea',fontSize=14)
+      ax.set_ylabel('SalePrice',fontSize=14)
 
     plt.tight_layout()  # グラフ間に隙間をあける
     plt.show() # グラフの表示

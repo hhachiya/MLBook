@@ -3,28 +3,28 @@ import pandas as pd
 import matplotlib.pylab as plt
 
 #-------------------
-# 1. ƒf[ƒ^‚Ì“Ç‚İ‚İ
-data = pd.read_csv('../data/house-prices-advanced-regression-techniques/train.csv')
+# ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
+data = pd.read_csv('../../data/house-prices-advanced-regression-techniques/train.csv')
 #-------------------
 
 #-------------------
-# 2. ƒvƒƒbƒg 
+# æ•£å¸ƒå›³ã®ãƒ—ãƒ­ãƒƒãƒˆ 
 
-# figure‚Ì‰Šú‰»
+# figureã®åˆæœŸåŒ–
 fig = plt.figure()
 
-# GrLivArea‘ÎSalePrice‚ÌU•z}
-ax=fig.add_subplot(1,2,1)   #ƒOƒ‰ƒt‚ÌˆÊ’uw’èi1s2—ñ‚Ì1—ñ–Új
+# GrLivAreaå¯¾SalePriceã®æ•£å¸ƒå›³
+ax=fig.add_subplot(1,2,1)   #ã‚°ãƒ©ãƒ•ã®ä½ç½®æŒ‡å®šï¼ˆ1è¡Œ2åˆ—ã®1åˆ—ç›®ï¼‰
 ax.plot(data['GrLivArea'],data['SalePrice'],'.')
-ax.set_xlabel('GrLivArea')  #x²‚Ìƒ‰ƒxƒ‹
-ax.set_ylabel('SalePrice')  #y²‚Ìƒ‰ƒxƒ‹
+ax.set_xlabel('GrLivArea',fontSize=14)  #xè»¸ã®ãƒ©ãƒ™ãƒ«
+ax.set_ylabel('SalePrice',fontSize=14)  #yè»¸ã®ãƒ©ãƒ™ãƒ«
 
-# MSSubClass‘ÎSalePrice‚ÌU•z}
-ax=fig.add_subplot(1,2,2)   #ƒOƒ‰ƒt‚ÌˆÊ’uw’èi1s2—ñ‚Ì2—ñ–Új
+# MSSubClasså¯¾SalePriceã®æ•£å¸ƒå›³
+ax=fig.add_subplot(1,2,2)   #ã‚°ãƒ©ãƒ•ã®ä½ç½®æŒ‡å®šï¼ˆ1è¡Œ2åˆ—ã®2åˆ—ç›®ï¼‰
 ax.plot(data['MSSubClass'],data['SalePrice'],'.')
-ax.set_xlabel('MSSubClass') #x²‚Ìƒ‰ƒxƒ‹
-ax.set_ylabel('SalePrice')  #y²‚Ìƒ‰ƒxƒ‹
+ax.set_xlabel('MSSubClass',fontSize=14) #xè»¸ã®ãƒ©ãƒ™ãƒ«
+ax.set_ylabel('SalePrice',fontSize=14)  #yè»¸ã®ãƒ©ãƒ™ãƒ«
 
-fig.tight_layout()  # ƒOƒ‰ƒtŠÔ‚ÉŒ„ŠÔ‚ğ‚ ‚¯‚é
-plt.show()  # ƒOƒ‰ƒt‚Ì•\¦
+fig.tight_layout()  # ã‚°ãƒ©ãƒ•é–“ã«éš™é–“ã‚’ã‚ã‘ã‚‹
+plt.show()  # ã‚°ãƒ©ãƒ•ã®è¡¨ç¤º
 #-------------------
