@@ -247,15 +247,15 @@ class sentimentLabelling:
       fName = 'imdb_labelled.txt'
 
     # csvファイルの読み込み
-    data = pd.read_csv(os.path.join(self.path,fName),'\t')
+    data = pd.read_csv(os.path.join(self.path,fName),'\t',header=None)
 
     # データのインデックスをランダムにシャッフル
     dNum = len(data)
     randInds = np.random.permutation(dNum)
 
     # 文章データ
-    sentences = data['sentence'][randInds]
-    self.Y = data['score'][randInds]
+    sentences = data[0][randInds]
+    self.Y = data[1][randInds]
     self.X = self.sentence2words(sentences)
   #-------------------
 
