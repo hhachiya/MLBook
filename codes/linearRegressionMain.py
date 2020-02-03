@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.regression()
-myData.makeData(dataType=2)
+myData.makeData(dataType=1)
 #-------------------
 
 #-------------------

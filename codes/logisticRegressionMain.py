@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.classification(negLabel=0,posLabel=1)
-myData.makeData(dataType=5)
+myData.makeData(dataType=2)
 #-------------------
 
 #-------------------
@@ -61,6 +61,6 @@ elif Xtr.shape[1] == 2:
 
 #-------------------
 # 6. 学習と評価損失のプロット
-myModel.plotLoss(trLoss, teLoss,fName=f"../results/logistic_CE_{myData.dataType}.png")
+myModel.plotEval(trLoss, teLoss,fName=f"../results/logistic_CE_{myData.dataType}.png")
 #myModel.plotLoss(trLoss, teLoss)
 #-------------------

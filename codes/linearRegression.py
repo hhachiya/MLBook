@@ -45,7 +45,7 @@ class linearRegression():
   #-------------------
   # 4. 平均平方二乗誤差（Root Mean Squared Error）
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   def RMSE(self,X,Y):
     return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
   #-------------------
@@ -53,7 +53,7 @@ class linearRegression():
   #-------------------
   # 5. 決定係数の計算
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   def R2(self,X,Y):
     return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
   #-------------------
@@ -61,7 +61,7 @@ class linearRegression():
   #------------------- 
   # 6. データと線形モデルのプロット
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）
   # fName:画像の保存先（文字列）

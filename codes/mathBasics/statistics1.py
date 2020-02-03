@@ -11,7 +11,10 @@ means = np.mean(X,axis=0)
 # 行方向（axis=0）に対して，中央値を計算
 medians= np.median(X,axis=0)
 
+
 # 標準出力
 print(f"データX：\n{X}\n")
-print(f"平均値）身長:{means[0]:.2f}，体重:{means[1]:.2f}，胸囲:{means[2]:.2f}")
-print(f"中央値）身長:{medians[0]:.2f}，体重:{medians[1]:.2f}，胸囲:{medians[2]:.2f}\n")# 数値計算用のライブラリnumpyをnpとしてインポート
+
+print(f"平均値）身長:{means[0]:.2f}，体重:{means[1]:.2f}，胸囲:{means[2]:.2f}\n")
+
+print(f"中央値）身長:{medians[0]:.2f}，体重:{medians[1]:.2f}，胸囲:{medians[2]:.2f}\n")
