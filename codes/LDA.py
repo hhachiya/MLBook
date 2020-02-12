@@ -6,7 +6,7 @@ class LDA():
   #-------------------
   # 1. 学習データの設定と、全体および各カテゴリの平均の計算
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def __init__(self, X, Y):
     # 学習データの設定
     self.X = X
@@ -50,7 +50,7 @@ class LDA():
   #-------------------
   # 4. 正解率の計算
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）  
+  # Y: 出力データ（データ数×１のnumpy.array）  
   def accuracy(self,x,y):
     return np.sum(self.predict(x)==y)/len(x)
   #-------------------
@@ -58,7 +58,7 @@ class LDA():
   #-------------------
   # 5. 真値と予測値のプロット（入力ベクトルが2次元の場合）
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）  
+  # Y:出力データ（データ数×１のnumpy.array）  
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）
   # title:タイトル（文字列）

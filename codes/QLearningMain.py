@@ -5,7 +5,7 @@ import pdb
 import QLearning as ql
 
 #------------------
-# 1. 強化学習の環境の作成と変数の設定
+# 0. 強化学習の環境の作成と変数の設定
 # 割引報酬和の系列格納
 sumReward = 0
 sumRewards = []
@@ -18,8 +18,10 @@ nSplit=50
 
 # 反復回数
 nIte = 50001
+#------------------
 
-# QLearningオブジェクト
+#------------------
+# 1. QLearningのインスタンス化
 agent = ql.QLearning(env='MountainCar-v0', gamma=0.99, nSplit=nSplit)
 #------------------
 

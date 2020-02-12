@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import cvxopt
-import cvxopt.solvers
 import matplotlib.pylab as plt
 
 # クラス
@@ -9,7 +8,7 @@ class SVM():
   #-------------------
   # 1. 学習データの初期化
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def __init__(self, X, Y):
 
     # 学習データの設定
@@ -95,7 +94,7 @@ class SVM():
   #-------------------
   # 4. 正解率の計算
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）  
+  # Y: 出力データ（データ数×１のnumpy.array）  
   def accuracy(self,X,Y):
     predict, _ = self.predict(X)
     return np.sum(predict==Y)/len(X)
@@ -104,7 +103,7 @@ class SVM():
   #-------------------
   # 5. 真値と予測値のプロット（入力ベクトルが2次元の場合）
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # spptInds:サポートベクトルのインデックス（インデックス数のnumpy.array)
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）

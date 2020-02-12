@@ -14,7 +14,6 @@ class naiveBayes():
     # 学習データの設定
     self.X = X
     self.Y = Y
-    self.labels = np.unique(Y)
 
     # 重複なしの単語一覧の作成
     self.wordDict = list(np.unique(np.concatenate(self.X)))
@@ -52,7 +51,7 @@ class naiveBayes():
   def train(self):
 
     # カテゴリごとの単語の出現回数
-    wordNumsCat = [np.sum(self.wordNums[self.Y==y],axis=0) for y in self.labels]
+    wordNumsCat = [np.sum(self.wordNums[self.Y==y],axis=0) for y in np.unique(self.Y)]
     wordNumsCat = np.array(wordNumsCat)
 
     # 単語の尤度p(x|y)（カテゴリごと単語の出現割合）の計算
@@ -68,7 +67,7 @@ class naiveBayes():
     wordNums = self.countWords(X)
 
     # 文章の尤度計算
-    sentenceL = [np.product(self.wordL[ind]**wordNums,axis=1) for ind in range(len(self.labels))]
+    sentenceL = [np.product(self.wordL[ind]**wordNums,axis=1) for ind in range(len(np.unique(self.Y)))]
     sentenceL = np.array(sentenceL)
     
     # 事後確率の計算

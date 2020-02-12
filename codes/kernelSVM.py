@@ -10,7 +10,7 @@ class SVM():
   #-------------------
   # 1. 学習データの初期化
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   # kernelFunc: kernelFuncクラスのインスタンス    
   def __init__(self, X, Y, spptThre=0.1, kernelFunc=None):
 
@@ -73,7 +73,7 @@ class SVM():
   #-------------------
   # 4. 正解率の計算
   # X: 入力データ（データ数×次元数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）  
+  # Y: 出力データ（データ数×１のnumpy.array）  
   def accuracy(self,X,Y):
     predict, _ = self.predict(X)
     return np.sum(predict==Y)/len(X)
@@ -82,7 +82,7 @@ class SVM():
   #-------------------
   # 5. データと分類境界f(x)のプロット
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # spptInds:サポートベクトルのインデックス（インデックス数のnumpy.array)
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）

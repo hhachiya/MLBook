@@ -245,7 +245,7 @@ class neuralNetwork():
   #-------------------
   # 5. 交差エントロピー損失（cross entropy loss）
   # X: 入力データ（次元数×データ数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def CE(self,X,Y):
     P,_,_ = self.predict(X)
 
@@ -260,7 +260,7 @@ class neuralNetwork():
   #-------------------
   # 6. 正解率の計算
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）
   def accuracy(self,X,Y, thre=0.5):
     P, _, _= self.predict(X)
@@ -281,7 +281,7 @@ class neuralNetwork():
   #-------------------
   # 6.1 適合率、再現率、F1スコアの計算
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）
   def eval(self,X,Y, thre=0.5):
     P, _, _= self.predict(X)
@@ -309,7 +309,7 @@ class neuralNetwork():
   #-------------------
   # 6.2. 混同行列の計算
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）  
   def confusionMatrix(self,X,Y,thre=0.5):
     P, _, _= self.predict(X)
@@ -331,7 +331,7 @@ class neuralNetwork():
   #------------------- 
   # 7. 真値と予測値のプロット（入力ベクトルが1次元の場合）
   # X:入力データ（次元数×データ数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
+  # Y:出力データ（データ数×１のnumpy.array）
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）
   # fName：画像の保存先（文字列）
@@ -364,7 +364,7 @@ class neuralNetwork():
   #-------------------
   # 8. 真値と予測値のプロット（入力ベクトルが2次元の場合）
   # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）  
+  # Y:出力データ（データ数×１のnumpy.array）  
   # xLabel:x軸のラベル（文字列）
   # yLabel:y軸のラベル（文字列）
   # title:タイトル（文字列）

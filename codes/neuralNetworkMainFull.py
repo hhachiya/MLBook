@@ -99,25 +99,15 @@ for ite in range(1001):
 #-------------------
 
 #-------------------
-# 5. 真値と予測値のプロット
-if Xtr.shape[1] == 1:
-  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
-    fName=f"../results/neuralNet_result_train_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
-elif Xtr.shape[1] == 2:
-  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
-    fName=f"../results/neuralNet_result_train_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
-#-------------------
-
-#-------------------
-# 6. 学習と評価損失のプロット
+# 5. 学習と評価損失のプロット
 myModel.plotEval(trLoss,teLoss,"損失",
-  fName=f"../results/neuralNet_CE_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
+  fName=f"../results/neuralNet_CE_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
 myModel.plotEval(trAcc,teAcc,"正解率",
-  fName=f"../results/neuralNet_accuracy_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
+  fName=f"../results/neuralNet_accuracy_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
 #-------------------
 
 #-------------------
-# 7. MNISTの分類結果の画像表示
+# 6. MNISTの分類結果の画像表示
 if dataType == 7:
   #-------------------
   # 分類に成功・失敗したデータのインデックス取得
@@ -177,7 +167,7 @@ if dataType == 7:
 #-------------------
 
 #-------------------
-# 8. 適合率、再現率、F1スコアの計算
+# 7. 適合率、再現率、F1スコアの計算
 precision, recall, f1 = myModel.eval(Xte,Yte)
 print(f"適合率\t：{np.round(precision,2)}")
 print(f"再現率\t：{np.round(recall,2)}")
@@ -185,7 +175,7 @@ print(f"F1\t：{np.round(f1,2)}")
 #-------------------
 
 #-------------------
-# 9. 混合行列
+# 8. 混合行列
 cm = myModel.confusionMatrix(Xte,Yte)
 print(f"混合行列：\n{cm}")
 #-------------------  

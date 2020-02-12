@@ -22,10 +22,10 @@ class linearRegression():
     Z = np.concatenate([self.X,np.ones([self.dNum,1])],axis=1)
 
     # 分母の計算
-    ZZ = np.matmul(Z.T,Z)
+    ZZ = 1/self.dNum*np.matmul(Z.T,Z)
 		
     # 分子の計算
-    ZY = np.matmul(Z.T,self.Y)
+    ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
 
     # パラメータvの最適化
     v = np.matmul(np.linalg.inv(ZZ), ZY)
@@ -34,6 +34,27 @@ class linearRegression():
     self.w = v[:-1]
     self.b = v[-1]
   #-------------------
+  
+  #-------------------
+  # 2.5. L2ノルム正則化最小二乗法を用いてモデルパラメータを最適化
+  # lamb: 正則化の重み係数（実数スカラー）
+  def trainRegularized(self,lamb=0.1):
+    # 行列Xに「1」の要素を追加
+    Z = np.concatenate([self.X,np.ones([self.dNum,1])],axis=1)
+
+    # 分母の計算
+    ZZ = 1/self.dNum*np.matmul(Z.T,Z) + lamb*np.eye(self.xDim)
+		
+    # 分子の計算
+    ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
+
+    # パラメータvの最適化
+    v = np.matmul(np.linalg.inv(ZZ), ZY)
+		
+    # パラメータw, bの決定
+    self.w = v[:-1]
+    self.b = v[-1]
+  #-------------------  
 		
   #-------------------
   # 3. 予測

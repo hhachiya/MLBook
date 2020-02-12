@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.regression()
-myData.makeData(dataType=1)
+myData.makeData(dataType=3)
 #-------------------
 
 #-------------------
@@ -24,7 +24,7 @@ Yte = myData.Y[dtrNum:]
 #-------------------
 # 3. 線形モデルの学習
 myModel = lr.linearRegression(Xtr,Ytr)
-myModel.train()
+myModel.trainRegularized(lamb=1)
 #-------------------
 
 #-------------------

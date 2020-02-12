@@ -15,14 +15,14 @@ myData.makeData(dataType=4)
 
 #-------------------
 # 2. データを学習と評価用に分割
-dtrNum = int(len(myData.X)*0.9)  # 学習データ数
+dNum = int(len(myData.X)*0.9)  # 学習データ数
 # 学習データ（全体の90%）
-Xtr = myData.X[:dtrNum]
-Ytr = myData.Y[:dtrNum]
+Xtr = myData.X[:dNum]
+Ytr = myData.Y[:dNum]
 
 # 評価データ（全体の10%）
-Xte = myData.X[dtrNum:]
-Yte = myData.Y[dtrNum:]
+Xte = myData.X[dNum:]
+Yte = myData.Y[dNum:]
 #-------------------
 
 #-------------------
@@ -45,7 +45,7 @@ elif kernelType == 2: # 多項式カーネルのオーダー
 foldNum = 5
 
 # 各foldで用いる学習データ数
-dtrNumFold = int(dtrNum/foldNum)
+dNumFold = int(dNum/foldNum)
 
 # ランダムにデータを並べ替える
 randInds = np.random.permutation(len(Xtr))
@@ -53,19 +53,20 @@ randInds = np.random.permutation(len(Xtr))
 # 正解率を格納する変数
 accuracies = np.zeros([len(kernelParams), foldNum])
 
+# ハイパーパラメータの候補のループ
 for paramInd in range(len(kernelParams)):
 
   # 交差確認によ正解率の推定
   for foldInd in range(foldNum):
   
-    # 学習データ数dtrNumFold分左にシフト
-    randIndsTmp = np.roll(randInds,-dtrNumFold*foldInd)
+    # 学習データ数dNumFold分左にシフト
+    randIndsTmp = np.roll(randInds,-dNumFold*foldInd)
     
     # 学習と評価データの分割
-    XtrTmp = Xtr[randIndsTmp[dtrNumFold:]]
-    YtrTmp = Ytr[randIndsTmp[dtrNumFold:]]
-    XteTmp = Xtr[randIndsTmp[:dtrNumFold]]
-    YteTmp = Ytr[randIndsTmp[:dtrNumFold]]
+    XtrTmp = Xtr[randIndsTmp[dNumFold:]]
+    YtrTmp = Ytr[randIndsTmp[dNumFold:]]
+    XteTmp = Xtr[randIndsTmp[:dNumFold]]
+    YteTmp = Ytr[randIndsTmp[:dNumFold]]
 
     try:
       # 手順1) SVMのモデルの学習

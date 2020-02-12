@@ -73,6 +73,7 @@ for ite in range(1001):
 if Xtr.shape[1] == 1:
   myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
     fName=f"../results/neuralNet_result_train_{myData.dataType}_{activeType}_{hDim}_{str(alpha).replace('.','')}.png")
+    
 elif Xtr.shape[1] == 2:
   myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
     fName=f"../results/neuralNet_result_train_{myData.dataType}_{activeType}_{hDim}_{str(alpha).replace('.','')}.png")

@@ -39,7 +39,7 @@ print(f"評価データの正解率：{np.round(myModel.accuracy(Xte,Yte),decima
 
 #-------------------
 # 5. 予測結果のCSVファイルへの出力
-myModel.writeResult2CSV(Xtr,Ytr,fName=f"../results/naiveBayes_{myData.dataType}_result_train.csv")
-myModel.writeResult2CSV(Xte,Yte,fName=f"../results/naiveBayes_{myData.dataType}_result_test.csv")
+myModel.writeResult2CSV(Xtr,Ytr,fName=f"../results/naiveBayes_result_train_{myData.dataType}.csv")
+myModel.writeResult2CSV(Xte,Yte,fName=f"../results/naiveBayes_result_test_{myData.dataType}.csv")
 #-------------------
 

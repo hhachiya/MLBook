@@ -27,7 +27,7 @@ class QLearning:
 
     # 状態の分割数
     self.nSplit = nSplit
-    self.winWidth = (self.stateMax - self.stateMin)/self.nSplit
+    self.cellWidth = (self.stateMax - self.stateMin)/self.nSplit
     
     # Qテーブルの初期化
     self.Q = np.zeros((self.nSplit, self.nSplit, self.nAction))
@@ -52,9 +52,9 @@ class QLearning:
   def getStateIndex(self,state):
   
     # 離散値に変換
-    state = ((state-self.stateMin)/self.winWidth).astype(int)
+    stateInd = ((state-self.stateMin)/self.cellWidth).astype(int)
 
-    return state
+    return stateInd
   #------------------
   
   #------------------
@@ -62,11 +62,11 @@ class QLearning:
   # state: 状態ベクトル
   def selectAction(self, state, epsilon=0.02):
     # 状態の離散化
-    state = self.getStateIndex(state)
+    stateInd = self.getStateIndex(state)
     
     # ε-貪欲方策
     if np.random.uniform(0, 1) > epsilon:
-      action = np.argmax(self.Q[state[0]][state[1]])
+      action = np.argmax(self.Q[stateInd[0]][stateInd[1]])
     else:
       action = np.random.randint(self.nAction)
 
@@ -96,17 +96,17 @@ class QLearning:
   # alpha：学習率（実数スカラー、デフォルトでは0.2）
   def update(self, state, action, next_state, reward, alpha=0.2):
     # 状態の離散化
-    state = self.getStateIndex(state)
-    next_state = self.getStateIndex(next_state)
+    stateInd = self.getStateIndex(state)
+    next_stateInd = self.getStateIndex(next_state)
     
     # 行動後の状態で得られる最大行動価値 Q(s',a')
-    next_max_Qvalue = np.max(self.Q[next_state[0]][next_state[1]])
+    next_max_Qvalue = np.max(self.Q[next_stateInd[0]][next_stateInd[1]])
 
     # 行動前の状態の行動価値 Q(s,a)
-    Qvalue = self.Q[state[0]][state[1]][action]
+    Qvalue = self.Q[stateInd[0]][stateInd[1]][action]
     
     # 行動価値関数の更新
-    self.Q[state[0]][state[1]][action] = Qvalue + alpha * (reward + self.gamma * next_max_Qvalue - Qvalue)
+    self.Q[stateInd[0]][stateInd[1]][action] = Qvalue + alpha * (reward + self.gamma * next_max_Qvalue - Qvalue)
   #------------------
 
   #------------------

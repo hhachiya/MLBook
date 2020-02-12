@@ -67,7 +67,17 @@ class regression:
       self.X = data[data['MSSubClass']==60][['GrLivArea','GarageArea','PoolArea','BedroomAbvGr','TotRmsAbvGrd']].values
       self.Y = data[data['MSSubClass']==60][['SalePrice']].values
       self.xLabel = ""
-      self.yLabel = "物件価格y[ドル]"  
+      self.yLabel = "物件価格y[ドル]"
+      
+    # 物件価格）説明変数:居住面積、物件価格に外れ値を追加
+    elif dataType == 3:
+      data = pd.read_csv(os.path.join(self.path,"house-prices-advanced-regression-techniques/train.csv"))
+      
+      self.X = data[data['MSSubClass']==60][['GrLivArea']].values
+      self.Y = data[data['MSSubClass']==60][['SalePrice']].values
+      self.Y[self.Y>700000] -= 700000 # 外れ値
+      self.xLabel = "居住面積x[平方フィート]"
+      self.yLabel = "物件価格y[ドル]"
   #-------------------
 ####################
 
