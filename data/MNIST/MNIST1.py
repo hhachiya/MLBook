@@ -13,6 +13,7 @@ Xtr = np.reshape(data,[-1,28*28])/255
 fp = gzip.open('train-labels-idx1-ubyte.gz','rb')
 Ytr = np.frombuffer(fp.read(),np.uint8,offset=8)
 #-------------------
+
 #-------------------
 # 評価用
 # 入力画像

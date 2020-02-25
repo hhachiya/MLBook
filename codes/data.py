@@ -196,7 +196,6 @@ class classification:
         
       self.xLabel = "$x_1$"
       self.yLabel = "$x_2$"
-      #-------------------
       
     # MNIST
     elif dataType == 7:      
@@ -229,6 +228,35 @@ class classification:
       self.Ttr = np.eye(10)[self.Ytr]
       self.Tte = np.eye(10)[self.Yte]
       #-------------------
+  #-------------------      
+####################
+
+####################
+# 決定木デモデータ用のクラス
+class decisionTree:
+  #-------------------
+  # パス、ラベルの設定
+  def __init__(self):
+    self.path = "../data/decisionTree"
+  #-------------------
+  
+  #-------------------
+  # データの作成
+  # dataType: データの種類（整数スカラー）
+  def makeData(self,dataType=1):
+    self.dataType = dataType
+
+    # テニスをするか否か
+    if dataType == 1:
+      df = pd.read_csv(f'{self.path}/playTennis.csv')
+
+    # 動物の種類
+    elif dataType == 2:
+      df = pd.read_csv(f'{self.path}/animals.csv')
+
+    self.Xtr = df.drop('Y',axis=1)      
+    self.Ytr = df[['Y']].values
+  #-------------------          
 ####################
 
 ####################
