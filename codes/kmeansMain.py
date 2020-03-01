@@ -31,5 +31,5 @@ for ite in np.arange(10):
   
   # クラスターのプロット
   if X.shape[1] == 2:
-    myModel.plotCluster(fName=f"../results/kmeans_results_{myData.dataType}_{myModel.K}_{ite}.png")
+    myModel.plotCluster(fName=f"../results/kmeans_results_{myData.dataType}_{myModel.K}_{ite}.pdf")
 #-------------------

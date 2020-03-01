@@ -101,9 +101,9 @@ for ite in range(1001):
 #-------------------
 # 5. 学習と評価損失のプロット
 myModel.plotEval(trLoss,teLoss,"損失",
-  fName=f"../results/neuralNet_CE_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
+  fName=f"../results/neuralNetFull_CE_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.pdf")
 myModel.plotEval(trAcc,teAcc,"正解率",
-  fName=f"../results/neuralNet_accuracy_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png")
+  fName=f"../results/neuralNetFull_accuracy_{dataType}_{activeType}_{hDim}_{updateType}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.pdf")
 #-------------------
 
 #-------------------
@@ -136,7 +136,7 @@ if dataType == 7:
     ax = fig.add_subplot(2,5,ind+1)
     ax.imshow(np.reshape(Xte[inds[0]],[28,28]),cmap="gray")
 
-  fName=f"../results/MNIST_examples.png"
+  fName=f"../results/MNIST_examples.svg"
   plt.tight_layout()
   plt.savefig(fName)
   #-------------------
@@ -149,7 +149,7 @@ if dataType == 7:
     ax.imshow(np.reshape(Xte[fInds[ind]],[28,28]),cmap="gray")
     ax.set_title(f"gt:{Y[fInds[ind]]},pred:{P[fInds[ind]]}")
   
-  fName=f"../results/neuralNet_failed_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png"
+  fName=f"../results/neuralNetFull_failed_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.pdf"
   plt.savefig(fName)
   #-------------------
 
@@ -161,7 +161,7 @@ if dataType == 7:
     ax.imshow(np.reshape(Xte[sInds[ind]],[28,28]),cmap="gray")
     ax.set_title(f"gt:{Y[sInds[ind]]},pred:{P[sInds[ind]]}")
 
-  fName=f"../results/neuralNet_success_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.png"
+  fName=f"../results/neuralNetFull_success_{dataType}_{updateType}_{activeType}_{hDim}_{str(alpha).replace('.','')}_{str(rate).replace('.','')}_{str(beta).replace('.','')}_{batchSize}.pdf"
   plt.savefig(fName)
   #-------------------
 #-------------------

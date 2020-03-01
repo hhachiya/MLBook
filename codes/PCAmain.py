@@ -25,12 +25,12 @@ print(f"正規直交基底ベクトル：\nw=\n{myModel.W}")
 # 4. データと主成分軸のプロット
 # 次元削減後のデータ（主成分得点）のプロット
 if myModel.lowerDim == 2:
-  myModel.plotResult(fName=f"../results/PCA_result_{myData.dataType}.png")
+  myModel.plotResult(fName=f"../results/PCA_result_{myData.dataType}.pdf")
   
 # 主成分軸（平面）のプロット
 if (myData.X.shape[1] == 3) & (myModel.lowerDim == 2):
   myModel.plotModel3D(xLabel=myData.labels[0],yLabel=myData.labels[1],zLabel=myData.labels[2],nGrids=20,
-  fName=f"../results/PCA_result_plane_{myData.dataType}.png")
+    fName=f"../results/PCA_result_plane_{myData.dataType}.pdf")
 #-------------------
 
 #-------------------

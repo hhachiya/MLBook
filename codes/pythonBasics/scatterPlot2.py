@@ -4,7 +4,7 @@ import matplotlib.pylab as plt
 
 #-------------------
 # 1. データの読み込み
-data = pd.read_csv('../data/house-prices-advanced-regression-techniques/train.csv')
+data = pd.read_csv('../../data/house-prices-advanced-regression-techniques/train.csv')
 #-------------------
 
 #-------------------
@@ -26,5 +26,6 @@ ax.set_ylabel('SalePrice')  # y軸のラベル
 ax.legend()  # 凡例
 
 fig.tight_layout()  # グラフ間に隙間をあける
-plt.show()  # グラフの表示
+#plt.show()  # グラフの表示
+plt.savefig("objective_example.pdf")
 #-------------------

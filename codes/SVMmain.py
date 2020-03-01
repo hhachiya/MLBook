@@ -32,8 +32,8 @@ Xte = (Xte-xMean)/xStd
 #-------------------
 # 4. SVMのモデルの学習
 myModel = svm.SVM(Xtr,Ytr)
-#myModel.train()
-myModel.trainSoft(0.5)
+myModel.train()
+#myModel.trainSoft(0.5)
 #-------------------
 
 #-------------------
@@ -46,7 +46,7 @@ print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 # 6. 真値と予測値のプロット
 myModel.plotModel2D(X=Xtr,Y=Ytr,spptInds=myModel.spptInds, xLabel=myData.xLabel,yLabel=myData.yLabel,
   title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f}, 評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
-  fName=f"../results/SVM_result_{myData.dataType}.png",
+  fName=f"../results/SVM_result_{myData.dataType}.pdf",
   isLinePlot=True)
 #-------------------
 

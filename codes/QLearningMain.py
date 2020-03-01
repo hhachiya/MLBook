@@ -68,7 +68,7 @@ for episode in np.arange(nIte):
   agent.close()
 
   # 13. 割引報酬和とQ関数のプロット
-  if not episode%5000:
-    agent.plotEval(sumRewards,fName=f"../results/Qlearning_sumRewards_{nSplit}_{nIte}.png")
-    agent.plotModel2D(xLabel="位置",yLabel="速度",fName=f"../results/Qlearning_Qtable_{nSplit}_{nIte}.png")
+  if episode==1000 or not episode%5000:
+    agent.plotEval(sumRewards,fName=f"../results/Qlearning_sumRewards_{nSplit}_{episode}.pdf")
+    agent.plotModel2D(xLabel="位置",yLabel="速度",fName=f"../results/Qlearning_Qtable_{nSplit}_{episode}.pdf")
 #------------------

@@ -20,7 +20,6 @@ Ytr = myData.Y[:dtrNum]
 Xte = myData.X[dtrNum:]
 Yte = myData.Y[dtrNum:]
 #-------------------
-
 '''
 #-------------------
 # 2.5 アンダーサンプリング
@@ -53,5 +52,5 @@ print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 # 5. 真値と予測値のプロット
 if Xtr.shape[1] == 2:
-  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/LDA_result_train_{myData.dataType}.png")
+  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/LDA_result_train_{myData.dataType}.pdf")  
 #-------------------

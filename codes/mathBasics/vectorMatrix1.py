@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-# 列ベクトル：2行1列のnumpy arrayをを定義
+# 列ベクトル：2行1列のnumpy arrayを定義
 w = np.array([ [5.0], [3.0] ])
 
 # 行ベクトル：1行2列のnumpy arrayを定義
@@ -11,7 +11,7 @@ x = np.array([ [1.0, 5.0] ])
 zeros = np.zeros([1,5])
 ones = np.ones([1,5])
 
-# 一様分布または正規分布に従ってランダムに1x5のnumpy.arrayを生成
+# 一様分布または正規分布に従ってランダムに1行5列のnumpy.arrayを生成
 uniform = np.random.rand(1,5)
 normal = np.random.normal(size=[1,5])
 

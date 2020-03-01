@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.regression()
-myData.makeData(dataType=3)
+myData.makeData(dataType=1)
 #-------------------
 
 #-------------------
@@ -24,7 +24,8 @@ Yte = myData.Y[dtrNum:]
 #-------------------
 # 3. 線形モデルの学習
 myModel = lr.linearRegression(Xtr,Ytr)
-myModel.trainRegularized(lamb=1)
+myModel.train()
+#myModel.trainRegularized(lamb=1)
 #-------------------
 
 #-------------------
@@ -36,5 +37,5 @@ print(f"決定係数={myModel.R2(Xte,Yte):.2f}")
 
 #-------------------
 # 5. 線形モデルのプロット
-myModel.plotResult(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/linearRegression_result_train_{myData.dataType}.png")
+myModel.plotResult(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/linearRegression_result_train_{myData.dataType}.pdf")
 #-------------------

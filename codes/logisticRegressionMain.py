@@ -6,7 +6,7 @@ import data
 #-------------------
 # 1. データの作成
 myData = data.classification(negLabel=0,posLabel=1)
-myData.makeData(dataType=2)
+myData.makeData(dataType=1)
 #-------------------
 
 #-------------------
@@ -54,13 +54,13 @@ for ite in range(1001):
 #-------------------
 # 5. 真値と予測値のプロット
 if Xtr.shape[1] == 1:
-  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.png")
+  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
 elif Xtr.shape[1] == 2:
-  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.png")
+  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
 #-------------------
 
 #-------------------
 # 6. 学習と評価損失のプロット
-myModel.plotEval(trLoss, teLoss,fName=f"../results/logistic_CE_{myData.dataType}.png")
+myModel.plotEval(trLoss, teLoss,fName=f"../results/logistic_CE_{myData.dataType}.pdf")
 #myModel.plotLoss(trLoss, teLoss)
 #-------------------

@@ -7,8 +7,9 @@ import data
 # 0. ハイパーパラメータの設定
 dataType = 6      # データの種類
 activeType = 2    # 活性化関数の種類
-hDim = 10         # 中間層のノード数
+hDim = 20         # 中間層のノード数
 alpha = 1         # 学習率
+rate = 0.5        # ノード選択確率（ドロップアウト）
 #-------------------
 
 #-------------------
@@ -66,6 +67,7 @@ for ite in range(1001):
 
   # パラメータの更新
   myModel.update(Xbatch,Ybatch,alpha=alpha)
+  #myModel.updateDropout(Xbatch,Ybatch,alpha=alpha,rate=rate)
 #-------------------
 
 #-------------------

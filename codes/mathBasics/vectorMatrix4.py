@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-# 行列：3行2列のnumpy arrayをを定義
+# 行列：3行2列のnumpy arrayを定義
 X = np.array([ [1.0,2.0], [2.0,4.0], [3.0,6.0] ])
 
-# 列ベクトルw：2行1列のnumpy arrayをを定義
+# 列ベクトルw：2行1列のnumpy arrayを定義
 w = np.array([ [5.0], [3.0] ])
 
-# 列ベクトルb：3行1列のnumpy arrayをを定義
+# 列ベクトルb：3行1列のnumpy arrayを定義
 b = np.array([ [1.0], [1.0], [1.0] ])
 
 # 行列とベクトルの積と和
