@@ -10,7 +10,7 @@ myData.makeData(dataType=2)
 #-------------------
 
 #-------------------
-# 2. 決定木の作成（version=1:ID3, version=2: CART）
+# 2. 決定木の作成（version=1: ID3,version=2: CART）
 myModel = dt.decisionTree(myData.Xtr,myData.Ytr,version=2)
 myModel.train()
 #-------------------

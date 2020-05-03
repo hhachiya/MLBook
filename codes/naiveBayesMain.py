@@ -27,7 +27,7 @@ Yte = myData.Y[dtrNum:]
 # 事前確率の設定
 priors = np.array([[0.5,0.5]])
 
-myModel = naiveBayes.naiveBayes(Xtr,Ytr, priors)
+myModel = naiveBayes.naiveBayes(Xtr,Ytr,priors)
 myModel.train()
 #-------------------
 

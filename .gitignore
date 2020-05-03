@@ -1,0 +1,16 @@
+.ipynb_checkpoints/Untitled-checkpoint.ipynb
+Untitled.ipynb
+Untitled1.ipynb
+Untitled2.ipynb
+.ipynb_checkpoints/Untitled1-checkpoint.ipynb
+.ipynb_checkpoints/Untitled2-checkpoint.ipynb
+codes/backup/Untitled4.ipynb
+codes/__pycache__/*
+codes/pythonBasics/__pycache__/*
+codes/backup/*
+results/*
+*.pdf
+*.eps
+*.png
+*.gz
+codes/data/

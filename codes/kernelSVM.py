@@ -12,7 +12,7 @@ class SVM():
   # X: 入力データ（データ数×次元数のnumpy.array）
   # Y: 出力データ（データ数×１のnumpy.array）
   # kernelFunc: kernelFuncクラスのインスタンス    
-  def __init__(self, X, Y, spptThre=0.1, kernelFunc=None):
+  def __init__(self,X,Y,spptThre=0.1,kernelFunc=None):
 
     # カーネルの設定
     self.kernelFunc = kernelFunc
@@ -49,7 +49,7 @@ class SVM():
     b = cvxopt.matrix(0.0)
 
     # 二次計画法
-    sol = cvxopt.solvers.qp(P, q, G, h, A, b)
+    sol = cvxopt.solvers.qp(P,q,G,h,A,b)
     self.lamb = np.array(sol['x'])
     # 'x'がlambdaに対応する
     
@@ -75,20 +75,20 @@ class SVM():
   # X: 入力データ（データ数×次元数のnumpy.array）
   # Y: 出力データ（データ数×１のnumpy.array）  
   def accuracy(self,X,Y):
-    predict, _ = self.predict(X)
+    predict,_ = self.predict(X)
     return np.sum(predict==Y)/len(X)
   #------------------- 
 
   #-------------------
   # 5. データと分類境界f(x)のプロット
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
-  # spptInds:サポートベクトルのインデックス（インデックス数のnumpy.array)
-  # xLabel:x軸のラベル（文字列）
-  # yLabel:y軸のラベル（文字列）
-  # title:タイトル（文字列）
-  # fName：画像の保存先（文字列）
-  # isLinePlot：分類境界の直線をプロットするかしないか（boolean)
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
+  # spptInds: サポートベクトルのインデックス（インデックス数のnumpy.array)
+  # xLabel: x軸のラベル（文字列）
+  # yLabel: y軸のラベル（文字列）
+  # title: タイトル（文字列）
+  # fName: 画像の保存先（文字列）
+  # isLinePlot: 分類境界の直線をプロットするかしないか（boolean)
   def plotModel2D(self,X=[],Y=[],spptInds=[],xLabel="",yLabel="",title="",fName="",isLinePlot=False):
     plt.close()
     
@@ -97,7 +97,7 @@ class SVM():
     plt.plot(X[Y[:,0]== 1,0],X[Y[:,0]== 1,1],'m.',markerSize=14,label="カテゴリ+1")
 
     # 予測値のメッシュの計算
-    X1, X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50), plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
+    X1,X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50),plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
     Xmesh = np.hstack([np.reshape(X1,[-1,1]),np.reshape(X2,[-1,1])])
     _,Ymesh = self.predict(Xmesh)
     Ymesh = np.reshape(Ymesh,X1.shape)

@@ -9,7 +9,7 @@ class naiveBayes():
   # X: 各文章の単語リスト（データ数のリスト）
   # Y: 出力データ（データ数×1のnumpy.array）
   # priors: 事前確率（1×カテゴリ数のnumpy.array）
-  def __init__(self, X, Y, priors):
+  def __init__(self,X,Y,priors):
     
     # 学習データの設定
     self.X = X
@@ -96,7 +96,7 @@ class naiveBayes():
     P = self.predict(X)
     
     # データフレームの作成
-    df = pd.DataFrame(np.array([Y, P, X]).T,columns=['gt','predict','sentence'],index=np.arange(len(X)))
+    df = pd.DataFrame(np.array([Y,P,X]).T,columns=['gt','predict','sentence'],index=np.arange(len(X)))
     
     # csvファイルに書き出し
     df.to_csv(fName,index=False)

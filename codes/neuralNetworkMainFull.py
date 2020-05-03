@@ -168,7 +168,7 @@ if dataType == 7:
 
 #-------------------
 # 7. 適合率、再現率、F1スコアの計算
-precision, recall, f1 = myModel.eval(Xte,Yte)
+precision,recall,f1 = myModel.eval(Xte,Yte)
 print(f"適合率\t：{np.round(precision,2)}")
 print(f"再現率\t：{np.round(recall,2)}")
 print(f"F1\t：{np.round(f1,2)}")

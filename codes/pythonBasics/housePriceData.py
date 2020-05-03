@@ -7,7 +7,7 @@ class housePriceData:
   #-------------------
   # 1. コンストラクタ
   # path: ファイルのパス（文字列）
-  def __init__(self, path):
+  def __init__(self,path):
     self.data = pd.read_csv(path)  # dataframeの読み込み
   #-------------------
   
@@ -15,7 +15,7 @@ class housePriceData:
   # 2. 建物等級（MSSubClass）を限定した散布図（GrLivArea vs. SalePrice）をプロットするメソッド
   # titles: タイトル（グラフ数のリスト）
   # levels: 建物等級（グラフ数のリスト）
-  def plotScatter(self, titles, levels):
+  def plotScatter(self,titles,levels):
   
     # figureの初期化
     fig = plt.figure()
@@ -41,8 +41,8 @@ class housePriceData:
           self.data[self.data['MSSubClass']==levels[ind]]['SalePrice'].values,'.')
       
       # 各軸の範囲とラベルの設定
-      ax.set_xlim([xrange[0], xrange[1]])
-      ax.set_ylim([yrange[0], yrange[1]])
+      ax.set_xlim([xrange[0],xrange[1]])
+      ax.set_ylim([yrange[0],yrange[1]])
       ax.set_xlabel('GrLivArea',fontSize=14)
       ax.set_ylabel('SalePrice',fontSize=14)
 

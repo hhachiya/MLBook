@@ -7,7 +7,7 @@ class LDA():
   # 1. 学習データの設定と、全体および各カテゴリの平均の計算
   # X: 入力データ（データ数×次元数のnumpy.array）
   # Y: 出力データ（データ数×１のnumpy.array）
-  def __init__(self, X, Y):
+  def __init__(self,X,Y):
     # 学習データの設定
     self.X = X
     self.Y = Y
@@ -36,7 +36,7 @@ class LDA():
     Sintra = np.matmul(Xneg.T,Xneg) + np.matmul(Xpos.T,Xpos)
     
     # 固有値問題を解き、最大固有値の固有ベクトルを獲得
-    [L, V] = np.linalg.eig(np.matmul(np.linalg.inv(Sintra),Sinter))
+    [L,V] = np.linalg.eig(np.matmul(np.linalg.inv(Sintra),Sinter))
     self.w=V[:,[np.argmax(L)]]
   #-------------------
 
@@ -57,12 +57,12 @@ class LDA():
   
   #-------------------
   # 5. 真値と予測値のプロット（入力ベクトルが2次元の場合）
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）  
-  # xLabel:x軸のラベル（文字列）
-  # yLabel:y軸のラベル（文字列）
-  # title:タイトル（文字列）
-  # fName：画像の保存先（文字列）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）  
+  # xLabel: x軸のラベル（文字列）
+  # yLabel: y軸のラベル（文字列）
+  # title: タイトル（文字列）
+  # fName: 画像の保存先（文字列）
   def plotModel2D(self,X=[],Y=[],xLabel="",yLabel="",title="",fName=""):
     if X.shape[1] != 2: return  
   

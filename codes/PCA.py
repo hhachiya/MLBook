@@ -7,7 +7,7 @@ class PCA:
   #-------------------
   # 1. 主成分分析の各種初期化
   # X: 学習データ（データ数×次元数のnumpy.array）
-  def __init__(self, X):
+  def __init__(self,X):
 
     # データの中心化
     self.mean = np.mean(X,axis=0)
@@ -17,7 +17,7 @@ class PCA:
   #-------------------
   # 2. 主成分分析を用いた次元削減
   # lowerDim: 低次元空間の次元数（整数スカラー）
-  def reduceDim(self, lowerDim):
+  def reduceDim(self,lowerDim):
     self.lowerDim = lowerDim
 
     # 分散共分散行列
@@ -64,7 +64,7 @@ class PCA:
   # zLabel: z軸のラベル（文字列）
   # nGrids: 格子の数（整数のスカラー）
   # fName: 画像の保存先（文字列）  
-  def plotModel3D(self, xLabel="", yLabel="", zLabel="", nGrids=10,fName=""):
+  def plotModel3D(self,xLabel="",yLabel="",zLabel="",nGrids=10,fName=""):
     
     # 平面の法線ベクトルの計算
     normal = np.cross(self.W[:,0],self.W[:,1])
@@ -72,9 +72,9 @@ class PCA:
     # XとY軸のメッシュ計算
     Xmin = np.min(self.X,axis=0)
     Xmax = np.max(self.X,axis=0)
-    Xrange = np.arange(Xmin[0], Xmax[0], int((Xmax[0]-Xmin[0])/nGrids))
-    Yrange = np.arange(Xmin[1], Xmax[1], int((Xmax[1]-Xmin[1])/nGrids))
-    XX, YY = np.meshgrid(Xrange,Yrange)
+    Xrange = np.arange(Xmin[0],Xmax[0],int((Xmax[0]-Xmin[0])/nGrids))
+    Yrange = np.arange(Xmin[1],Xmax[1],int((Xmax[1]-Xmin[1])/nGrids))
+    XX,YY = np.meshgrid(Xrange,Yrange)
     
     # 各グリッドのz成分の計算
     ZZ = -(normal[0]*XX + normal[1]*YY)/normal[2]
@@ -116,7 +116,7 @@ class PCA:
     # 累積寄与率の計算
     cumContRatio = [np.sum(contRatio[:i+1]) for i in range(len(self.L))]
     
-    return contRatio, cumContRatio
+    return contRatio,cumContRatio
   #-------------------
 
   #-------------------

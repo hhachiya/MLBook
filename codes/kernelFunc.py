@@ -3,14 +3,14 @@ import numpy as np
 
 class kernelFunc():
   #-------------------
-  # kernelType: 線形モデル(0), ガウスカーネル(1)、多項式カーネル(2)
+  # kernelType: 線形モデル(0),ガウスカーネル(1)、多項式カーネル(2)
   # kernelParam: カーネルの作成に用いるパラメータ（スカラー）  
-  def __init__(self, kernelType=0, kernelParam=1):
+  def __init__(self,kernelType=0,kernelParam=1):
     self.kernelType = kernelType
     self.kernelParam = kernelParam
 
     # カーネル関数の設定  
-    kernelFuncs = [self.linear, self.gauss, self.poly]
+    kernelFuncs = [self.linear,self.gauss,self.poly]
     self.createMatrix = kernelFuncs[kernelType]
   #-------------------
 
@@ -22,8 +22,8 @@ class kernelFunc():
     
   #-------------------
   # ガウスカーネル
-  # X1：入力データ（データ数×次元数のnumpy.array）
-  # X2：入力データ（データ数×次元数のnumpy.array）
+  # X1: 入力データ（データ数×次元数のnumpy.array）
+  # X2: 入力データ（データ数×次元数のnumpy.array）
   def gauss(self,X1,X2):
     X1Num = len(X1)
     X2Num = len(X2)
@@ -41,8 +41,8 @@ class kernelFunc():
   
   #-------------------  
   # 多項式カーネル
-  # X1：入力データ（データ数×次元数のnumpy.array）
-  # X2：入力データ（データ数×次元数のnumpy.array）
+  # X1: 入力データ（データ数×次元数のnumpy.array）
+  # X2: 入力データ（データ数×次元数のnumpy.array）
   def poly(self,X1,X2):
 
     # グラム行列（X1のデータ数×X2のデータ数）

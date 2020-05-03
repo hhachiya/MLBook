@@ -6,9 +6,9 @@ import matplotlib.pylab as plt
 class logisticRegression():
   #-------------------
   # 1. 学習データの設定とモデルパラメータの初期化
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
-  def __init__(self, X, Y):
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
+  def __init__(self,X,Y):
     # 学習データの設定
     self.X = X
     self.Y = Y
@@ -32,7 +32,7 @@ class logisticRegression():
   def update(self,alpha=0.1):
 
     # 予測の差の計算
-    P, _ = self.predict(self.X)
+    P,_ = self.predict(self.X)
     error = (P - self.Y)
     
     # パラメータの更新
@@ -40,35 +40,35 @@ class logisticRegression():
     v = np.concatenate([self.w,self.b],axis=0)
     v -= alpha * grad
     
-    # パラメータw, bの決定
+    # パラメータw,bの決定
     self.w = v[:-1]
     self.b = v[[-1]]
   #-------------------
 
   #-------------------
   # 3. 予測
-  # X:入力データ（データ数×次元数のnumpy.array）
+  # X: 入力データ（データ数×次元数のnumpy.array）
   def predict(self,x):
     f_x = np.matmul(x,self.w) + self.b
-    return 1/(1+np.exp(-f_x)), f_x
+    return 1/(1+np.exp(-f_x)),f_x
   #-------------------
   
   #-------------------
   # 4. 交差エントロピー損失の計算
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def CE(self,X,Y):
-    P, _ = self.predict(X)
+    P,_ = self.predict(X)
     return -np.mean(Y*np.log(P+self.smallV)+(1-Y)*np.log(1-P+self.smallV))
   #-------------------
   
   #-------------------
   # 5. 正解率の計算
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）
-  def accuracy(self,X,Y, thre=0.5):
-    P, _ = self.predict(X)
+  def accuracy(self,X,Y,thre=0.5):
+    P,_ = self.predict(X)
     
     # 2値化
     P[P>thre] = 1
@@ -81,16 +81,16 @@ class logisticRegression():
   
   #------------------- 
   # 6. 真値と予測値のプロット（入力ベクトルが1次元の場合）
-  # X:入力データ（次元数×データ数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
-  # xLabel:x軸のラベル（文字列）
-  # yLabel:y軸のラベル（文字列）
-  # fName：画像の保存先（文字列）
+  # X: 入力データ（次元数×データ数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
+  # xLabel: x軸のラベル（文字列）
+  # yLabel: y軸のラベル（文字列）
+  # fName: 画像の保存先（文字列）
   def plotModel1D(self,X=[],Y=[],xLabel="",yLabel="",fName=""):
     fig = plt.figure(figsize=(6,4),dpi=100)
 
     # 予測値
-    P, _ = self.predict(X)
+    P,_ = self.predict(X)
 
     # 真値と予測値のプロット
     plt.plot(X,Y,'b.',label="真値")
@@ -114,12 +114,12 @@ class logisticRegression():
 
   #-------------------
   # 7. 真値と予測値のプロット（入力ベクトルが2次元の場合）
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）  
-  # xLabel:x軸のラベル（文字列）
-  # yLabel:y軸のラベル（文字列）
-  # title:タイトル（文字列）
-  # fName：画像の保存先（文字列）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）  
+  # xLabel: x軸のラベル（文字列）
+  # yLabel: y軸のラベル（文字列）
+  # title: タイトル（文字列）
+  # fName: 画像の保存先（文字列）
   def plotModel2D(self,X=[],Y=[],xLabel="",yLabel="",title="",fName=""):
     #fig = plt.figure(figsize=(6,4),dpi=100)
     plt.close()
@@ -129,7 +129,7 @@ class logisticRegression():
     plt.plot(X[Y[:,0]==1,0],X[Y[:,0]==1,1],'m.',markerSize=14,label="ラベル1")
 
     # 予測値のメッシュの計算
-    X1, X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50), plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
+    X1,X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50),plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
     Xmesh = np.hstack([np.reshape(X1,[-1,1]),np.reshape(X2,[-1,1])])
     Pmesh,_ = self.predict(Xmesh)
     Pmesh = np.reshape(Pmesh,X1.shape)
@@ -158,10 +158,10 @@ class logisticRegression():
 
   #------------------- 
   # 8. 学習と評価損失のプロット
-  # trEval:学習の損失
-  # teEval:評価の損失
-  # yLabel:y軸のラベル（文字列）
-  # fName:画像の保存先（文字列）
+  # trEval: 学習の損失
+  # teEval: 評価の損失
+  # yLabel: y軸のラベル（文字列）
+  # fName: 画像の保存先（文字列）
   def plotEval(self,trEval,teEval,ylabel="損失",fName=""):
     fig = plt.figure(figsize=(6,4),dpi=100)
     

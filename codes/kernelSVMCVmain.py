@@ -51,7 +51,7 @@ dNumFold = int(dNum/foldNum)
 randInds = np.random.permutation(len(Xtr))
 
 # 正解率を格納する変数
-accuracies = np.zeros([len(kernelParams), foldNum])
+accuracies = np.zeros([len(kernelParams),foldNum])
 
 # ハイパーパラメータの候補のループ
 for paramInd in range(len(kernelParams)):
@@ -70,8 +70,8 @@ for paramInd in range(len(kernelParams)):
 
     try:
       # 手順1) SVMのモデルの学習
-      myKernel = kf.kernelFunc(kernelType=kernelType, kernelParam=kernelParams[paramInd])
-      myModel = svm.SVM(XtrTmp,YtrTmp, kernelFunc=myKernel)
+      myKernel = kf.kernelFunc(kernelType=kernelType,kernelParam=kernelParams[paramInd])
+      myModel = svm.SVM(XtrTmp,YtrTmp,kernelFunc=myKernel)
       myModel.trainSoft(0.5)
     except:
       continue
@@ -94,7 +94,7 @@ plt.savefig(f"../results/kernelSVM_CV_{myData.dataType}_{kernelType}.pdf")
 
 #-------------------
 # 4. カーネル関数の作成
-myKernel = kf.kernelFunc(kernelType=kernelType, kernelParam=selectedParam)
+myKernel = kf.kernelFunc(kernelType=kernelType,kernelParam=selectedParam)
 #-------------------
 
 #-------------------
@@ -112,7 +112,7 @@ print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 # 7. 真値と予測値のプロット
 myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
-  title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f}, 評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
+  title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f},評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
   fName=f"../results/kernelSVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.png",
   isLinePlot=False)
 #-------------------

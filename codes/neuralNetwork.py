@@ -12,7 +12,7 @@ class neuralNetwork():
   # Y: 出力データ（データ数×次元数のnumpy.array）
   # hDim: 中間層のノード数（整数スカラー）
   # activeType: 活性化関数の種類（1:シグモイド関数、2:ReLU関数）
-  def __init__(self, X, Y, hDim=10, activeType=1):
+  def __init__(self,X,Y,hDim=10,activeType=1):
     # 学習データの設定
     self.xDim = X.shape[1]
     self.yDim = Y.shape[1]
@@ -49,7 +49,7 @@ class neuralNetwork():
     Z = np.append(X,np.ones([dNum,1]),axis=1)
 
     # 予測
-    P, H, S = self.predict(X)
+    P,H,S = self.predict(X)
 
     # 予測の差の計算
     error = P - Y
@@ -78,7 +78,7 @@ class neuralNetwork():
     grad2 = 1/dNum*np.matmul(H.T,error)
     V2 -= alpha * grad2
     
-    # パラメータw1, b1, w2, b2の決定
+    # パラメータw1,b1,w2,b2の決定
     self.w1 = V1[:-1]
     self.w2 = V2[:-1]    
     self.b1 = V1[[-1]]
@@ -96,7 +96,7 @@ class neuralNetwork():
     Z = np.append(X,np.ones([dNum,1]),axis=1)
     
     # 予測
-    P, H, S, Md = self.predictDropout(X,rate=rate)
+    P,H,S,Md = self.predictDropout(X,rate=rate)
     
     # 予測の差の計算
     error = P - Y
@@ -127,7 +127,7 @@ class neuralNetwork():
     grad2 = 1/dNum*np.matmul(H.T,error)
     V2 -= alpha * grad2
   
-    # パラメータw1, b1, w2, b2の決定
+    # パラメータw1,b1,w2,b2の決定
     self.w1 = V1[:-1]
     self.w2 = V2[:-1]
     self.b1 = V1[[-1]]
@@ -146,7 +146,7 @@ class neuralNetwork():
     Z = np.append(X,np.ones([dNum,1]),axis=1)
     
     # 予測
-    P, H, S, Md = self.predictDropout(X,rate=rate)
+    P,H,S,Md = self.predictDropout(X,rate=rate)
     
     # 予測の差の計算
     error = P - Y
@@ -194,7 +194,7 @@ class neuralNetwork():
     V2 -= alpha * mhat/(np.sqrt(Vhat)+self.smallV)
     #-------------------
 
-    # パラメータw1, b1, w2, b2の決定
+    # パラメータw1,b1,w2,b2の決定
     self.w1 = V1[:-1]
     self.w2 = V2[:-1]
     self.b1 = V1[[-1]]    
@@ -209,7 +209,7 @@ class neuralNetwork():
     H = self.activation(s)
     f_x = np.matmul(H,self.w2) + self.b2
 
-    return 1/(1+np.exp(-f_x)), H, s
+    return 1/(1+np.exp(-f_x)),H,s
   #-------------------
   
   #-------------------
@@ -224,7 +224,7 @@ class neuralNetwork():
     H = self.activation(s)*M
     f_x = np.matmul(H,self.w2) + self.b2
 
-    return 1/(1+np.exp(-f_x)), H, s, M
+    return 1/(1+np.exp(-f_x)),H,s,M
   #-------------------
 
   #-------------------
@@ -262,8 +262,8 @@ class neuralNetwork():
   # X:入力データ（データ数×次元数のnumpy.array）
   # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）
-  def accuracy(self,X,Y, thre=0.5):
-    P, _, _= self.predict(X)
+  def accuracy(self,X,Y,thre=0.5):
+    P,_,_= self.predict(X)
     
     # 予測値Pをラベルに変換
     if self.yDim == 1:
@@ -283,8 +283,8 @@ class neuralNetwork():
   # X:入力データ（データ数×次元数のnumpy.array）
   # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）
-  def eval(self,X,Y, thre=0.5):
-    P, _, _= self.predict(X)
+  def eval(self,X,Y,thre=0.5):
+    P,_,_= self.predict(X)
     
     # 予測値Pをラベルに変換
     if self.yDim == 1:
@@ -303,7 +303,7 @@ class neuralNetwork():
     # F1スコア
     f1 = (2*precision*recall)/(precision+recall)
     
-    return precision, recall, f1
+    return precision,recall,f1
   #-------------------  
   
   #-------------------
@@ -312,7 +312,7 @@ class neuralNetwork():
   # Y:出力データ（データ数×１のnumpy.array）
   # thre: 閾値（スカラー）  
   def confusionMatrix(self,X,Y,thre=0.5):
-    P, _, _= self.predict(X)
+    P,_,_= self.predict(X)
 
     # 予測値Pをラベルに変換
     if self.yDim == 1:
@@ -339,7 +339,7 @@ class neuralNetwork():
     fig = plt.figure(figsize=(6,4),dpi=100)
 
     # 予測値
-    P, _ = self.predict(X)
+    P,_ = self.predict(X)
 
     # 真値と予測値のプロット
     plt.plot(X,Y,'b.',label="真値")
@@ -378,9 +378,9 @@ class neuralNetwork():
     plt.plot(X[Y[:,0]==1,0],X[Y[:,0]==1,1],'m.',markerSize=14,label="ラベル1")
 
     # 予測値のメッシュの計算
-    X1, X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50), plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
+    X1,X2 = plt.meshgrid(plt.linspace(np.min(X[:,0]),np.max(X[:,0]),50),plt.linspace(np.min(X[:,1]),np.max(X[:,1]),50))
     Xmesh = np.hstack([np.reshape(X1,[-1,1]),np.reshape(X2,[-1,1])])
-    Pmesh, _, _ = self.predict(Xmesh)
+    Pmesh,_,_ = self.predict(Xmesh)
     Pmesh = np.reshape(Pmesh,X1.shape)
 
     # 予測値のプロット

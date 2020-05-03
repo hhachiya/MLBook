@@ -30,7 +30,7 @@ myModel.train()
 
 #-------------------
 # 4. 線形モデルの評価
-print(f"モデルパラメータ：\nw={myModel.w}, \nb={myModel.b}")
+print(f"モデルパラメータ：\nw={myModel.w},\nb={myModel.b}")
 print(f"平方平均二乗誤差={myModel.RMSE(Xte,Yte):.2f}ドル")
 print(f"決定係数={myModel.R2(Xte,Yte):.2f}")
 #-------------------

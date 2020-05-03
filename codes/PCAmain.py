@@ -36,7 +36,7 @@ if (myData.X.shape[1] == 3) & (myModel.lowerDim == 2):
 #-------------------
 # 5. モデルの評価
 # 寄与率と累積寄与率の計算
-contRatio, cumContRatio = myModel.compRatio()
+contRatio,cumContRatio = myModel.compRatio()
 print(f"寄与率：{np.round(contRatio,decimals=1)}")
 print(f"累積寄与率：{np.round(cumContRatio,decimals=1)}")
 

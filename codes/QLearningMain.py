@@ -22,7 +22,7 @@ nIte = 50001
 
 #------------------
 # 1. QLearningのインスタンス化
-agent = ql.QLearning(env='MountainCar-v0', gamma=0.99, nSplit=nSplit)
+agent = ql.QLearning(env='MountainCar-v0',gamma=0.99,nSplit=nSplit)
 #------------------
 
 #------------------
@@ -42,10 +42,10 @@ for episode in np.arange(nIte):
     y = agent.selectAction(x,epsilon=epsilon)
 
     # 7. 行動を実行
-    next_x, r, done = agent.doAction(y)
+    next_x,r,done = agent.doAction(y)
 
     # 8. Qテーブルの更新
-    agent.update(x, y, next_x, r)
+    agent.update(x,y,next_x,r)
 
     # 9. 環境の描画
     if not episode%5000:
@@ -62,7 +62,7 @@ for episode in np.arange(nIte):
       sumReward = 0
       break
 
-  print(f"Episode:{episode}, sum of rewards:{sumRewards[-1]}")
+  print(f"Episode:{episode},sum of rewards:{sumRewards[-1]}")
 
   # 12. 強化学習環境の終了
   agent.close()

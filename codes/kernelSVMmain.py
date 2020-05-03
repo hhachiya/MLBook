@@ -32,7 +32,7 @@ Xte = (Xte-xMean)/xStd
 
 #-------------------
 # 4. カーネル関数の作成
-myKernel = kf.kernelFunc(kernelType=1, kernelParam=1)
+myKernel = kf.kernelFunc(kernelType=1,kernelParam=1)
 #-------------------
 
 #-------------------
@@ -50,7 +50,7 @@ print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 # 7. 真値と予測値のプロット
 myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
-  title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f}, 評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
+  title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f},評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
   fName=f"../results/kernelSVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.pdf",
   isLinePlot=True)
 #-------------------

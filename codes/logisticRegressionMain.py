@@ -42,7 +42,7 @@ for ite in range(1001):
   
   if ite%100==0:  
     print(f"反復:{ite}")
-    print(f"モデルパラメータ：\nw={myModel.w}, \nb={myModel.b}")
+    print(f"モデルパラメータ：\nw={myModel.w},\nb={myModel.b}")
     print(f"平均交差エントロピー損失={myModel.CE(Xte,Yte):.2f}")
     print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
     print("----------------")
@@ -61,6 +61,6 @@ elif Xtr.shape[1] == 2:
 
 #-------------------
 # 6. 学習と評価損失のプロット
-myModel.plotEval(trLoss, teLoss,fName=f"../results/logistic_CE_{myData.dataType}.pdf")
-#myModel.plotLoss(trLoss, teLoss)
+myModel.plotEval(trLoss,teLoss,fName=f"../results/logistic_CE_{myData.dataType}.pdf")
+#myModel.plotLoss(trLoss,teLoss)
 #-------------------

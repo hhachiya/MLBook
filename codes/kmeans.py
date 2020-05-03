@@ -10,14 +10,14 @@ class kmeans:
   # 1. k-meansの各種初期化
   # X: 学習データ（データ数×次元数のnumpy.array）
   # K: クラスター数（整数スカラー）
-  def __init__(self, X, K=5):
+  def __init__(self,X,K=5):
     # パラメータの設定
     self.dNum = len(X)
     self.K = K
     self.X = X
     
     # カラーマップ
-    self.cmap = ['#FF0000', '#00B0F0', '#FF00FF', '#00FF00', '#0000FF']
+    self.cmap = ['#FF0000','#00B0F0','#FF00FF','#00FF00','#0000FF']
 
     # ランダムにクラスター中心を設定
     self.C = X[np.random.permutation(self.dNum)[:self.K],:]
@@ -40,15 +40,15 @@ class kmeans:
   #-------------------
   
   #-------------------
-  # 3.学習データとクラスターのプロット
+  # 3. 学習データとクラスターのプロット
   # （特徴数が2の場合）
   # fName：画像の保存先（文字列）
-  def plotCluster(self,xLabel="$x_1$", yLabel="$x_2$",fName=""):
+  def plotCluster(self,xLabel="$x_1$",yLabel="$x_2$",fName=""):
     plt.close()
     
     # クラスターごとに学習データとクラスター中心のプロット
     for c in range(self.K):
-      plt.plot(self.X[self.cInd==c,0],self.X[self.cInd==c,1],'s',color=self.cmap[c], markeredgecolor='k', markersize='8')
+      plt.plot(self.X[self.cInd==c,0],self.X[self.cInd==c,1],'s',color=self.cmap[c],markeredgecolor='k',markersize='8')
       plt.plot(self.C[c,0],self.C[c,1],'o',color=self.cmap[c],markeredgecolor='k',markersize='16')
 
     # ラベル、グリッドおよび範囲の設定

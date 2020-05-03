@@ -10,7 +10,7 @@ class QLearning:
   # env: 強化学習タスク環境名
   # gamma: 割引率（実数スカラー）
   # nSplit: 状態の分割数（整数スカラー）
-  def __init__(self, env, gamma = 0.99, nSplit=50):
+  def __init__(self,env,gamma = 0.99,nSplit=50):
   
     # 環境の読み込み
     self.env = gym.make(env)
@@ -30,7 +30,7 @@ class QLearning:
     self.cellWidth = (self.stateMax - self.stateMin)/self.nSplit
     
     # Qテーブルの初期化
-    self.Q = np.zeros((self.nSplit, self.nSplit, self.nAction))
+    self.Q = np.zeros((self.nSplit,self.nSplit,self.nAction))
   #------------------
   
   #------------------
@@ -60,12 +60,12 @@ class QLearning:
   #------------------
   # 4. 行動の選択
   # state: 状態ベクトル
-  def selectAction(self, state, epsilon=0.02):
+  def selectAction(self,state,epsilon=0.02):
     # 状態の離散化
     stateInd = self.getStateIndex(state)
     
     # ε-貪欲方策
-    if np.random.uniform(0, 1) > epsilon:
+    if np.random.uniform(0,1) > epsilon:
       action = np.argmax(self.Q[stateInd[0]][stateInd[1]])
     else:
       action = np.random.randint(self.nAction)
@@ -76,15 +76,15 @@ class QLearning:
   #------------------
   # 5. 行動の実行、描画および終了判定
   # action: 行動インデックス（整数スカラー）
-  def doAction(self, action):
+  def doAction(self,action):
 
     # 行動の実行、次の状態・報酬・ゲーム終了FLG・詳細情報を取得
-    next_state, reward, done, _ = self.env.step(action)
+    next_state,reward,done,_ = self.env.step(action)
 
     # ステップのインクリメント
     self.step += 1
 
-    return next_state, reward, done
+    return next_state,reward,done
   #------------------
 
   #------------------
@@ -94,7 +94,7 @@ class QLearning:
   # next_state：次の状態（実数ベクトル）
   # reward：報酬値（実数スカラー）
   # alpha：学習率（実数スカラー、デフォルトでは0.2）
-  def update(self, state, action, next_state, reward, alpha=0.2):
+  def update(self,state,action,next_state,reward,alpha=0.2):
     # 状態の離散化
     stateInd = self.getStateIndex(state)
     next_stateInd = self.getStateIndex(next_state)

@@ -125,9 +125,9 @@ class classification:
       dNum = 120
       np.random.seed(1)
       
-      cov = [[1,-0.6], [-0.6, 1]]
-      X = np.random.multivariate_normal([1,2], cov, int(dNum/2))
-      X = np.concatenate([X, np.random.multivariate_normal([-2,-1], cov, int(dNum/2))],axis=0)
+      cov = [[1,-0.6],[-0.6,1]]
+      X = np.random.multivariate_normal([1,2],cov,int(dNum/2))
+      X = np.concatenate([X,np.random.multivariate_normal([-2,-1],cov,int(dNum/2))],axis=0)
       Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
       randInds = np.random.permutation(dNum)
       self.X = X[randInds]
@@ -140,12 +140,12 @@ class classification:
       dNum = 120
       np.random.seed(1)
       
-      cov1 = [[1,-0.8], [-0.8, 1]]
-      cov2 = [[1,0.8], [0.8, 1]]    
+      cov1 = [[1,-0.8],[-0.8,1]]
+      cov2 = [[1,0.8],[0.8,1]]    
         
-      X = np.random.multivariate_normal([0.5, 1], cov1, int(dNum/2))
-      X = np.concatenate([X, np.random.multivariate_normal([-1, -1], cov1, int(dNum/4))],axis=0)
-      X = np.concatenate([X, np.random.multivariate_normal([-1, 4], cov2, int(dNum/4))],axis=0)
+      X = np.random.multivariate_normal([0.5,1],cov1,int(dNum/2))
+      X = np.concatenate([X,np.random.multivariate_normal([-1,-1],cov1,int(dNum/4))],axis=0)
+      X = np.concatenate([X,np.random.multivariate_normal([-1,4],cov2,int(dNum/4))],axis=0)
       Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
       randInds = np.random.permutation(dNum)
       self.X = X[randInds]
@@ -159,10 +159,10 @@ class classification:
       dNum = 120
       np.random.seed(1)
       
-      cov = [[1,-0.8], [-0.8, 1]]   
-      X = np.random.multivariate_normal([0.5, 1], cov, int(dNum/2))
-      X = np.concatenate([X, np.random.multivariate_normal([-1, -1], cov, int(dNum/4))],axis=0)
-      X = np.concatenate([X, np.random.multivariate_normal([2, 2], cov, int(dNum/4))],axis=0)
+      cov = [[1,-0.8],[-0.8,1]]   
+      X = np.random.multivariate_normal([0.5,1],cov,int(dNum/2))
+      X = np.concatenate([X,np.random.multivariate_normal([-1,-1],cov,int(dNum/4))],axis=0)
+      X = np.concatenate([X,np.random.multivariate_normal([2,2],cov,int(dNum/4))],axis=0)
       Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
       
       # データのインデックスをシャッフル
@@ -177,17 +177,17 @@ class classification:
       dNum = 120
       np.random.seed(1)
           
-      cov1 = [[1,-0.8], [-0.8, 1]]
-      cov2 = [[1,0.8], [0.8, 1]]
+      cov1 = [[1,-0.8],[-0.8,1]]
+      cov2 = [[1,0.8],[0.8,1]]
 
-      X = np.random.multivariate_normal([0.5, 1], cov1, int(dNum/2))
-      X = np.concatenate([X, np.random.multivariate_normal([-1, -1], cov1, int(dNum/4))],axis=0)
-      X = np.concatenate([X, np.random.multivariate_normal([-1, 4], cov2, int(dNum/4))],axis=0)
+      X = np.random.multivariate_normal([0.5,1],cov1,int(dNum/2))
+      X = np.concatenate([X,np.random.multivariate_normal([-1,-1],cov1,int(dNum/4))],axis=0)
+      X = np.concatenate([X,np.random.multivariate_normal([-1,4],cov2,int(dNum/4))],axis=0)
       Y = np.concatenate([self.negLabel*np.ones([int(dNum/2),1]),self.posLabel*np.ones([int(dNum/2),1])],axis=0)
       
       # ノイズ
-      X = np.concatenate([X, np.array([[-1.5,-1.5],[-1,-1]])],axis=0)
-      Y = np.concatenate([Y, self.negLabel*np.ones([2,1])],axis=0)
+      X = np.concatenate([X,np.array([[-1.5,-1.5],[-1,-1]])],axis=0)
+      Y = np.concatenate([Y,self.negLabel*np.ones([2,1])],axis=0)
       dNum += 2
       
       randInds = np.random.permutation(dNum)
@@ -198,7 +198,7 @@ class classification:
       self.yLabel = "$x_2$"
       
     # MNIST
-    elif dataType == 7:      
+    elif dataType == 7:
       #-------------------
       # 学習用
       # 入力画像

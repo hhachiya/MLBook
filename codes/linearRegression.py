@@ -5,9 +5,9 @@ import matplotlib.pylab as plt
 class linearRegression():
   #-------------------
   # 1. 学習データの初期化
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×1のnumpy.array）
-  def __init__(self, X, Y):
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×1のnumpy.array）
+  def __init__(self,X,Y):
     # 学習データの設定
     self.X = X
     self.Y = Y
@@ -28,9 +28,9 @@ class linearRegression():
     ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
 
     # パラメータvの最適化
-    v = np.matmul(np.linalg.inv(ZZ), ZY)
+    v = np.matmul(np.linalg.inv(ZZ),ZY)
 		
-    # パラメータw, bの決定
+    # パラメータw,bの決定
     self.w = v[:-1]
     self.b = v[-1]
   #-------------------
@@ -49,9 +49,9 @@ class linearRegression():
     ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
 
     # パラメータvの最適化
-    v = np.matmul(np.linalg.inv(ZZ), ZY)
+    v = np.matmul(np.linalg.inv(ZZ),ZY)
 		
-    # パラメータw, bの決定
+    # パラメータw,bの決定
     self.w = v[:-1]
     self.b = v[-1]
   #-------------------  
@@ -65,27 +65,27 @@ class linearRegression():
   
   #-------------------
   # 4. 平均平方二乗誤差（Root Mean Squared Error）
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def RMSE(self,X,Y):
     return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
   #-------------------
     
   #-------------------
   # 5. 決定係数の計算
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
   def R2(self,X,Y):
     return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
   #-------------------
   
   #------------------- 
   # 6. データと線形モデルのプロット
-  # X:入力データ（データ数×次元数のnumpy.array）
-  # Y:出力データ（データ数×１のnumpy.array）
-  # xLabel:x軸のラベル（文字列）
-  # yLabel:y軸のラベル（文字列）
-  # fName:画像の保存先（文字列）
+  # X: 入力データ（データ数×次元数のnumpy.array）
+  # Y: 出力データ（データ数×１のnumpy.array）
+  # xLabel: x軸のラベル（文字列）
+  # yLabel: y軸のラベル（文字列）
+  # fName: 画像の保存先（文字列）
   def plotResult(self,X=[],Y=[],xLabel="",yLabel="",fName=""):
     if X.shape[1] != 1: return
     
