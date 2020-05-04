@@ -13,7 +13,7 @@ data = pd.read_csv('../../data/house-prices-advanced-regression-techniques/train
 # figureの初期化
 fig = plt.figure()
 
-ax=fig.add_subplot(1,1,1)  #グラフの位置指定
+ax=fig.add_subplot(1,1,1)  # グラフの位置指定
 
 # MSSubClass=30の時のLotArea対SalePriceの散布図
 ax.plot(data[data['MSSubClass']==30]['GrLivArea'],data[data['MSSubClass']==30]['SalePrice'],'.',label="1-Story 1945 & Older")

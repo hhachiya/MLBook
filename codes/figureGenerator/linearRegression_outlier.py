@@ -8,60 +8,60 @@ import copy
 ####################
 # クラス
 class linearRegression():
-  #-------------------
-  # 学習データの初期化
-  # X: 入力データ（次元数×データ数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
-  def __init__(self,X,Y):
-    # 学習データの設定
-    self.X = X
-    self.Y = Y
-    self.dNum = X.shape[0]
-    self.xDim = X.shape[1]
-  #-------------------
+    #-------------------
+    # 学習データの初期化
+    # X: 入力データ（次元数×データ数のnumpy.array）
+    # Y: 出力データ（データ数×1のnumpy.array）
+    def __init__(self,X,Y):
+        # 学習データの設定
+        self.X = X
+        self.Y = Y
+        self.dNum = X.shape[0]
+        self.xDim = X.shape[1]
+    #-------------------
 
-  #-------------------
-  # 最小二乗法を用いてモデルパラメータを最適化
-  def train(self):
-    # 行列Xに「1」の要素を追加
-    Z = np.append(self.X,np.ones([self.dNum,1]),axis=1)
+    #-------------------
+    # 最小二乗法を用いてモデルパラメータを最適化
+    def train(self):
+        # 行列Xに「1」の要素を追加
+        Z = np.append(self.X,np.ones([self.dNum,1]),axis=1)
 
-    # 分母の計算
-    ZZ = np.matmul(Z.T,Z) + 0.01*np.eye(self.xDim+1)
-		
-    # 分子の計算
-    ZY = np.matmul(Z.T,self.Y)
+        # 分母の計算
+        ZZ = np.matmul(Z.T,Z) + 0.01*np.eye(self.xDim+1)
 
-    # パラメータvの最適化
-    v = np.matmul(np.linalg.inv(ZZ),ZY)
-		
-    # パラメータw,bの決定
-    self.w = v[:-1]
-    self.b = v[-1]
-  #-------------------
-		
-  #-------------------
-  # 予測
-  # X: 入力データ（次元数×データ数のnumpy.array）
-  def predict(self,x):
-    return np.matmul(x,self.w) + self.b
-  #-------------------
-  
-  #-------------------
-  # 平均平方二乗誤差（Root Mean Squared Error）
-  # X: 入力データ（次元数×データ数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
-  def RMSE(self,X,Y):
-    return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
-  #-------------------
+        # 分子の計算
+        ZY = np.matmul(Z.T,self.Y)
+
+        # パラメータvの最適化
+        v = np.matmul(np.linalg.inv(ZZ),ZY)
+
+        # パラメータw,bの決定
+        self.w = v[:-1]
+        self.b = v[-1]
+    #-------------------
+
+    #-------------------
+    # 予測
+    # X: 入力データ（次元数×データ数のnumpy.array）
+    def predict(self,x):
+        return np.matmul(x,self.w) + self.b
+    #-------------------
     
-  #-------------------
-  # 決定係数
-  # X: 入力データ（次元数×データ数のnumpy.array）
-  # Y: 出力データ（データ数×1のnumpy.array）
-  def R2(self,X,Y):
-    return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
-  #-------------------    
+    #-------------------
+    # 平均平方二乗誤差（Root Mean Squared Error）
+    # X: 入力データ（次元数×データ数のnumpy.array）
+    # Y: 出力データ（データ数×1のnumpy.array）
+    def RMSE(self,X,Y):
+        return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
+    #-------------------
+
+    #-------------------
+    # 決定係数
+    # X: 入力データ（次元数×データ数のnumpy.array）
+    # Y: 出力データ（データ数×1のnumpy.array）
+    def R2(self,X,Y):
+        return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
+    #-------------------
 ####################
 
 ####################

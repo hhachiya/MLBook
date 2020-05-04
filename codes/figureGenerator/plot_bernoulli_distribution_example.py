@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pylab as  plt
+import matplotlib.pylab as plt
 
 #fig = plt.figure(figsize=(6,4),dpi=100)
 x=np.array([6/13,7/13])

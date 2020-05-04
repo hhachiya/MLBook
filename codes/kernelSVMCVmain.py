@@ -37,9 +37,9 @@ Xte = (Xte-xMean)/xStd
 # 3.5. モデル選択
 # ハイパーパラメータの候補
 if kernelType == 1: # ガウスカーネルの幅
-  kernelParams = [0.1,0.25,0.5,0.8,1.0,1.2,1.5,1.8,2.0,2.5,3.0]
+    kernelParams = [0.1,0.25,0.5,0.8,1.0,1.2,1.5,1.8,2.0,2.5,3.0]
 elif kernelType == 2: # 多項式カーネルのオーダー
-  kernelParams = [1.0,2.0,3.0,4.0,5.0]
+    kernelParams = [1.0,2.0,3.0,4.0,5.0]
 
 # fold数
 foldNum = 5
@@ -56,28 +56,28 @@ accuracies = np.zeros([len(kernelParams),foldNum])
 # ハイパーパラメータの候補のループ
 for paramInd in range(len(kernelParams)):
 
-  # 交差確認によ正解率の推定
-  for foldInd in range(foldNum):
-  
-    # 学習データ数dNumFold分左にシフト
-    randIndsTmp = np.roll(randInds,-dNumFold*foldInd)
+    # 交差確認によ正解率の推定
+    for foldInd in range(foldNum):
     
-    # 学習と評価データの分割
-    XtrTmp = Xtr[randIndsTmp[dNumFold:]]
-    YtrTmp = Ytr[randIndsTmp[dNumFold:]]
-    XteTmp = Xtr[randIndsTmp[:dNumFold]]
-    YteTmp = Ytr[randIndsTmp[:dNumFold]]
+        # 学習データ数dNumFold分左にシフト
+        randIndsTmp = np.roll(randInds,-dNumFold*foldInd)
+        
+        # 学習と評価データの分割
+        XtrTmp = Xtr[randIndsTmp[dNumFold:]]
+        YtrTmp = Ytr[randIndsTmp[dNumFold:]]
+        XteTmp = Xtr[randIndsTmp[:dNumFold]]
+        YteTmp = Ytr[randIndsTmp[:dNumFold]]
 
-    try:
-      # 手順1) SVMのモデルの学習
-      myKernel = kf.kernelFunc(kernelType=kernelType,kernelParam=kernelParams[paramInd])
-      myModel = svm.SVM(XtrTmp,YtrTmp,kernelFunc=myKernel)
-      myModel.trainSoft(0.5)
-    except:
-      continue
+        try:
+            # 手順1) SVMのモデルの学習
+            myKernel = kf.kernelFunc(kernelType=kernelType,kernelParam=kernelParams[paramInd])
+            myModel = svm.SVM(XtrTmp,YtrTmp,kernelFunc=myKernel)
+            myModel.trainSoft(0.5)
+        except:
+            continue
 
-    # 手順2) 評価データに対する正解率を格納
-    accuracies[paramInd,foldInd] = myModel.accuracy(XteTmp,YteTmp)
+        # 手順2) 評価データに対する正解率を格納
+        accuracies[paramInd,foldInd] = myModel.accuracy(XteTmp,YteTmp)
 
 # 手順4) 平均正解率が最大のパラメータ
 selectedParam = kernelParams[np.argmax(np.mean(accuracies,axis=1))]
@@ -101,10 +101,10 @@ myKernel = kf.kernelFunc(kernelType=kernelType,kernelParam=selectedParam)
 # 5. SVMのモデルの学習
 myModel = svm.SVM(Xtr,Ytr,kernelFunc=myKernel)
 myModel.trainSoft(0.5)
-#-------------------      
+#-------------------
 
 #-------------------
-# 6. SVMモデルの評価      
+# 6. SVMモデルの評価
 print(f"モデルパラメータ：\nw={myModel.w}\nb={myModel.b}")
 print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
@@ -112,7 +112,7 @@ print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 # 7. 真値と予測値のプロット
 myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,
-  title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f},評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
-  fName=f"../results/kernelSVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.png",
-  isLinePlot=False)
+    title=f"学習正解率：{myModel.accuracy(Xtr,Ytr):.2f},評価正解率：{myModel.accuracy(Xte,Yte):.2f}",
+    fName=f"../results/kernelSVM_result_{myData.dataType}_{myKernel.kernelType}_{str(myKernel.kernelParam).replace('.','')}.png",
+    isLinePlot=False)
 #-------------------

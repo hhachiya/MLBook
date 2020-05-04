@@ -8,9 +8,9 @@ values = np.array([10,3,1,5,8,6])
 # 空のリスト
 passed_values = []
 for ind in np.arange(len(values)):
-  #通常のif文
-  if values[ind] > 5:
-    passed_values.append(values[ind])
+    # 通常のif文
+    if values[ind] > 5:
+        passed_values.append(values[ind])
 
 # 結果を標準出力
 print("5以上の値",passed_values)

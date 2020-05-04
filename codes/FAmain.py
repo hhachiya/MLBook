@@ -25,7 +25,7 @@ print(f"独自因子の分散：\nE=\n{np.round(myModel.E,decimals=2)}")
 # 4. 因子のプロット
 # 主成分得点のプロット（２次元への次元削減時のみ実行可）
 if myModel.lowerDim == 2:
-  myModel.drawRadarChart(labels=myData.labels,fName=f"../results/FA_result_{myData.dataType}.pdf")
+    myModel.drawRadarChart(labels=myData.labels,fName=f"../results/FA_result_{myData.dataType}.pdf")
 #-------------------
 
 #-------------------

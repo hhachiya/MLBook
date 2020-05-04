@@ -37,26 +37,26 @@ trLoss = []
 teLoss = []
 
 for ite in range(1001):
-  trLoss.append(myModel.CE(Xtr,Ytr))
-  teLoss.append(myModel.CE(Xte,Yte))
-  
-  if ite%100==0:  
-    print(f"反復:{ite}")
-    print(f"モデルパラメータ：\nw={myModel.w},\nb={myModel.b}")
-    print(f"平均交差エントロピー損失={myModel.CE(Xte,Yte):.2f}")
-    print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
-    print("----------------")
+    trLoss.append(myModel.CE(Xtr,Ytr))
+    teLoss.append(myModel.CE(Xte,Yte))
     
-  # モデルパラメータの更新
-  myModel.update(alpha=1)
+    if ite%100==0:
+        print(f"反復:{ite}")
+        print(f"モデルパラメータ：\nw={myModel.w},\nb={myModel.b}")
+        print(f"平均交差エントロピー損失={myModel.CE(Xte,Yte):.2f}")
+        print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
+        print("----------------")
+        
+    # モデルパラメータの更新
+    myModel.update(alpha=1)
 #-------------------
 
 #-------------------
 # 5. 真値と予測値のプロット
 if Xtr.shape[1] == 1:
-  myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
+    myModel.plotModel1D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
 elif Xtr.shape[1] == 2:
-  myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
+    myModel.plotModel2D(X=Xtr,Y=Ytr,xLabel=myData.xLabel,yLabel=myData.yLabel,fName=f"../results/logistic_result_train_{myData.dataType}.pdf")
 #-------------------
 
 #-------------------

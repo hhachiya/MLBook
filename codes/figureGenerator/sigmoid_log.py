@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pylab as  plt
+import matplotlib.pylab as plt
 
 #------
 # 2次関数
