@@ -21,7 +21,7 @@ nIte = 50001
 #------------------
 
 #------------------
-# 1. QLearningのインスタンス化
+# 1. QLearningクラスのインスタンス化
 agent = ql.QLearning(env='MountainCar-v0',gamma=0.99,nSplit=nSplit)
 #------------------
 

@@ -5,7 +5,7 @@ import data
 import matplotlib.pylab as plt
 
 #-------------------
-# 0. ハイパーパラメータ
+# 0. ハイパーパラメータの設定
 dataType = 7     # データの種類
 updateType = 2   # 更新方法の種類
 activeType = 1   # 活性化関数の種類
@@ -93,9 +93,9 @@ for ite in range(1001):
     if updateType == 1:
         myModel.update(Xbatch,Ybatch,alpha=alpha)
     elif updateType == 2:
-        myModel.updateAdam(Xbatch,Ybatch,alpha=alpha,beta=beta,rate=rate)
-    elif updateType == 3:
         myModel.updateDropout(Xbatch,Ybatch,alpha=alpha,rate=rate)
+    elif updateType == 3:
+        myModel.updateAdam(Xbatch,Ybatch,alpha=alpha,beta=beta,rate=rate)
 #-------------------
 
 #-------------------

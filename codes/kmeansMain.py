@@ -23,7 +23,7 @@ myModel = kmeans.kmeans(X=X,K=3)
 
 for ite in np.arange(10):
 
-    # クラスタ中心の出力
+    # クラスター中心の出力
     print(f"反復{ite+1}、クラスター中心:\n{myModel.C}")
     
     # クラスターの更新

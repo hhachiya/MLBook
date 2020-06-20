@@ -74,14 +74,14 @@ class QLearning:
     #------------------
     
     #------------------
-    # 5. 行動の実行、描画および終了判定
+    # 5. 行動の実行、描画およびタスクの終了判定
     # action: 行動インデックス（整数スカラー）
     def doAction(self,action):
 
         # 行動の実行、次の状態・報酬・ゲーム終了FLG・詳細情報を取得
         next_state,reward,done,_ = self.env.step(action)
 
-        # ステップのインクリメント
+        # ステップを1増加
         self.step += 1
 
         return next_state,reward,done
@@ -99,13 +99,13 @@ class QLearning:
         stateInd = self.getStateIndex(state)
         next_stateInd = self.getStateIndex(next_state)
         
-        # 行動後の状態で得られる最大行動価値 Q(s',a')
+        # 行動後の状態で得られる最大のQ値 Q(s',a')
         next_max_Qvalue = np.max(self.Q[next_stateInd[0]][next_stateInd[1]])
 
-        # 行動前の状態の行動価値 Q(s,a)
+        # 行動前の状態のQ値 Q(s,a)
         Qvalue = self.Q[stateInd[0]][stateInd[1]][action]
         
-        # 行動価値関数の更新
+        # Q関数の更新
         self.Q[stateInd[0]][stateInd[1]][action] = Qvalue + alpha * (reward + self.gamma * next_max_Qvalue - Qvalue)
     #------------------
 

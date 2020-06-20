@@ -11,7 +11,7 @@ stds = np.std(X,axis=0)
 
 # Xを転置（変数×データ数）して，分散共分散行列の計算
 cov_bias = np.cov(X.T)
-cov_nobias =np.cov(X.T,bias=1)
+cov_nobias = np.cov(X.T,bias=1)
 
 # 標準出力
 print(f"データX：\n{X}\n")

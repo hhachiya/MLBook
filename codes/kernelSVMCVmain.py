@@ -56,7 +56,7 @@ accuracies = np.zeros([len(kernelParams),foldNum])
 # ハイパーパラメータの候補のループ
 for paramInd in range(len(kernelParams)):
 
-    # 交差確認によ正解率の推定
+    # 交差検証によ正解率の推定
     for foldInd in range(foldNum):
     
         # 学習データ数dNumFold分左にシフト
@@ -79,7 +79,7 @@ for paramInd in range(len(kernelParams)):
         # 手順2) 評価データに対する正解率を格納
         accuracies[paramInd,foldInd] = myModel.accuracy(XteTmp,YteTmp)
 
-# 手順4) 平均正解率が最大のパラメータ
+# 手順3) 平均正解率が最大のパラメータ
 selectedParam = kernelParams[np.argmax(np.mean(accuracies,axis=1))]
 print(f"選択したパラメータ:{selectedParam}")
 #-------------------

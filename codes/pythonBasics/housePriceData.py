@@ -12,15 +12,15 @@ class housePriceData:
     #-------------------
     
     #-------------------
-    # 2. 建物等級（MSSubClass）を限定した散布図（GrLivArea vs. SalePrice）をプロットするメソッド
+    # 2. 建物の等級（MSSubClass）を限定した散布図（GrLivArea vs. SalePrice）をプロットするメソッド
     # titles: タイトル（グラフ数のリスト）
-    # levels: 建物等級（グラフ数のリスト）
+    # levels: 建物の等級（グラフ数のリスト）
     def plotScatter(self,titles,levels):
     
         # figureの初期化
         fig = plt.figure()
 
-        # x軸とy軸の範囲計算
+        # 横軸と縦軸の範囲計算
         xrange = [np.min(self.data['GrLivArea'].values),np.max(self.data['GrLivArea'].values)]
         yrange = [np.min(self.data['SalePrice'].values),np.max(self.data['SalePrice'].values)]
         

@@ -7,7 +7,7 @@ import pdb
 # クラス
 class neuralNetwork():
     #-------------------
-    # 学習データの初期化
+    # 1. 学習データの初期化
     # X: 入力データ（データ数×次元数のnumpy.array）
     # Y: 出力データ（データ数×次元数のnumpy.array）
     # hDim: 中間層のノード数（整数スカラー）
@@ -59,12 +59,12 @@ class neuralNetwork():
         V1 = np.concatenate([self.w1,self.b1],axis=0)
 
         # 入力層と中間層の間のパラメータの更新
-        if self.activeType == 1:  # シグモイド活性化関数
+        if self.activeType == 1:  # シグモイド関数
             term1 = np.matmul(error,self.w2.T)
             term2 = term1*(1-H)*H
             grad1 = 1/dNum*np.matmul(Z.T,term2)
 
-        elif self.activeType == 2: # ReLU活性化関数
+        elif self.activeType == 2: # ReLU関数
             Ms = np.ones_like(S)
             Ms[S<=0] = 0
             term1 = np.matmul(error,self.w2.T)

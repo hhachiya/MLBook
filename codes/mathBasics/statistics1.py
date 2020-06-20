@@ -9,7 +9,7 @@ X = np.array([[170,60,80],[167,52,93],[174,57,85],[181,70,80],\
 means = np.mean(X,axis=0)
 
 # 行方向（axis=0）に対して，中央値を計算
-medians= np.median(X,axis=0)
+medians = np.median(X,axis=0)
 
 
 # 標準出力

@@ -21,12 +21,12 @@ class PCA:
         self.lowerDim = lowerDim
 
         # 分散共分散行列
-        cov=np.cov(self.X.T,bias=1)
+        cov = np.cov(self.X.T,bias=1)
         
         # 固有値問題
-        L,V= np.linalg.eig(cov)
+        L,V = np.linalg.eig(cov)
         
-        # 固有値と固有ベクトルの固有値の昇順でソート
+        # 固有値と固有ベクトルの固有値の降順でソート
         inds = np.argsort(L)[::-1]
         self.L = L[inds]
         self.W = V[:,inds]

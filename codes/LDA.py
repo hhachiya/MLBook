@@ -19,9 +19,9 @@ class LDA():
         self.Xpos = X[Y[:,0]==1]
 
         # 全体および各カテゴリに属すデータの平均
-        self.m=np.mean(self.X,axis=0,keepdims=True)
-        self.mNeg=np.mean(self.Xneg,axis=0,keepdims=True)
-        self.mPos=np.mean(self.Xpos,axis=0,keepdims=True)
+        self.m = np.mean(self.X,axis=0,keepdims=True)
+        self.mNeg = np.mean(self.Xneg,axis=0,keepdims=True)
+        self.mPos = np.mean(self.Xpos,axis=0,keepdims=True)
     #-------------------
 
     #-------------------

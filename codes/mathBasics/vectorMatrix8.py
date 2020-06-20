@@ -2,7 +2,7 @@
 import numpy as np
 
 # 行列Aの定義
-A=np.array([ [3,1],[1,3]])
+A = np.array([ [3,1],[1,3]])
 
 # 固有値問題
 L,V = np.linalg.eig(A)

@@ -3,7 +3,7 @@ import numpy as np
 
 class kernelFunc():
     #-------------------
-    # kernelType: 線形モデル(0),ガウスカーネル(1)、多項式カーネル(2)
+    # kernelType: 線形カーネル(0),ガウスカーネル(1)、多項式カーネル(2)
     # kernelParam: カーネルの作成に用いるパラメータ（スカラー）
     def __init__(self,kernelType=0,kernelParam=1):
         self.kernelType = kernelType
@@ -15,7 +15,7 @@ class kernelFunc():
     #-------------------
 
     #-------------------
-    # 線形モデル
+    # 線形カーネル
     def linear(self,X1,X2):
         return np.matmul(X1,X2.T)
     #-------------------

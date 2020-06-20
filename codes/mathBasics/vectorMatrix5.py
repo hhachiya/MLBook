@@ -2,8 +2,8 @@
 import numpy as np
 
 # 行列：2行2列のnumpy arrayを定義
-A=np.array([ [6.0,2.0],[2.0,5.0] ])
-B=np.array([ [6.0,3.0],[2.0,1.0] ])
+A = np.array([ [6.0,2.0],[2.0,5.0] ])
+B = np.array([ [6.0,3.0],[2.0,1.0] ])
 
 # 行列のランクの計算
 rankA = np.linalg.matrix_rank(A)

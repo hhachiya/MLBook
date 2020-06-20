@@ -21,11 +21,11 @@ ax.plot(data[data['MSSubClass']==30]['GrLivArea'],data[data['MSSubClass']==30]['
 # MSSubClass=60の時のLotArea対SalePriceの散布図
 ax.plot(data[data['MSSubClass']==60]['GrLivArea'],data[data['MSSubClass']==60]['SalePrice'],'.',label="2-Story 1946 & Newer")
 
-ax.set_xlabel('GrLivArea')  # x軸のラベル
-ax.set_ylabel('SalePrice')  # y軸のラベル
+ax.set_xlabel('GrLivArea')  # 横軸のラベル
+ax.set_ylabel('SalePrice')  # 縦軸のラベル
 ax.legend()  # 凡例
 
 fig.tight_layout()  # グラフ間に隙間をあける
-#plt.show()  # グラフの表示
-plt.savefig("objective_example.pdf")
+plt.show()  # グラフの表示
+#plt.savefig("objective_example.pdf")
 #-------------------
