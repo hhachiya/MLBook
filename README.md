@@ -1,10 +1,11 @@
 # MLBook
 
-## ƒf[ƒ^‚ÌƒŠƒ“ƒN
+## ãƒ„ãƒ¼ãƒ«ã®ãƒªãƒ³ã‚¯
 - [Anaconda](https://www.anaconda.com/download/)
+- [OpenAI Gym](https://gym.openai.com/)
 
-## ƒf[ƒ^‚ÌƒŠƒ“ƒN
-- [•¨Œ‰¿Šiƒf[ƒ^](http://www.kaggle.com/c/house-prices-advanced-regression-techniques)
-- [Žè•`‚«•¶Žš‰æ‘œƒf[ƒ^](http://yann.lecun.com/exdb/mnist/)
-- [ƒŒƒrƒ…[ƒf[ƒ^](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
+## ãƒ‡ãƒ¼ã‚¿ã®ãƒªãƒ³ã‚¯
+- [ç‰©ä»¶ä¾¡æ ¼ãƒ‡ãƒ¼ã‚¿](http://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+- [æ‰‹æãæ–‡å­—ç”»åƒãƒ‡ãƒ¼ã‚¿](http://yann.lecun.com/exdb/mnist/)
+- [ãƒ¬ãƒ“ãƒ¥ãƒ¼ãƒ‡ãƒ¼ã‚¿](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 
