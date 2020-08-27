@@ -6,7 +6,7 @@ import numpy as np
 class FA:
     #-------------------
     # 1. 因子分析の各種初期化
-    # X: 学習データ（データ数×次元数のnumpy.array）
+    # X: 学習データ（データ数×次元数のnumpy.ndarray）
     def __init__(self,X):
 
         # データの標準化
@@ -48,7 +48,7 @@ class FA:
         import matplotlib.pylab as plt
         
         # 円の作成
-        thetas=np.arange(0,2*np.pi,0.1)
+        thetas = np.arange(0,2*np.pi,0.1)
         C = np.array([[np.cos(theta),np.sin(theta)] for theta in thetas])
         
         # プロットの準備
@@ -95,7 +95,7 @@ class FA:
     def compVariances(self):
         # 共通性と独自性の計算
         comVar = np.sum(np.square(self.W),axis=0)
-        uniVar = 1-comVar
+        uniVar = 1 - comVar
         
         return comVar,uniVar
     #-------------------

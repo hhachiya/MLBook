@@ -14,12 +14,12 @@ cov_bias = np.cov(X.T)
 cov_nobias = np.cov(X.T,bias=1)
 
 # 標準出力
-print(f"データX：\n{X}\n")
+print(f"データX:\n{X}\n")
 
 print(f"分散）身長:{vars[0]:.2f}，体重:{vars[1]:.2f}，胸囲:{vars[2]:.2f}\n")
 
 print(f"標準偏差）身長:{stds[0]:.2f}，体重:{stds[1]:.2f}，胸囲:{stds[2]:.2f}\n")
 
-print(f"分散共分散行列 バイアスあり：\n{cov_bias}\n")
+print(f"分散共分散行列 バイアスあり:\n{cov_bias}\n")
 
-print(f"分散共分散行列 バイアスなし：\n{cov_nobias}\n")
+print(f"分散共分散行列 バイアスなし:\n{cov_nobias}\n")

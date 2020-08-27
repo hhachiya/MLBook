@@ -10,7 +10,7 @@ myData = hpd.housePriceData('../../data/house-prices-advanced-regression-techniq
 # 2. MSSubClassとタイトルのリスト作成
 levels = [20,30,60,70]
 
-titles=[]
+titles = []
 titles.append('1-Story 1946 & Newer')
 titles.append('1-Story 1945 & Older')
 titles.append('2-Story 1946 & Newer')

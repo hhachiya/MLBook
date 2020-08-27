@@ -33,8 +33,8 @@ myModel.train()
 
 #-------------------
 # 4. ナイーブベイズの評価
-print(f"学習データの正解率：{np.round(myModel.accuracy(Xtr,Ytr),decimals=2)}")
-print(f"評価データの正解率：{np.round(myModel.accuracy(Xte,Yte),decimals=2)}")
+print(f"学習データの正解率:{np.round(myModel.accuracy(Xtr,Ytr),decimals=2)}")
+print(f"評価データの正解率:{np.round(myModel.accuracy(Xte,Yte),decimals=2)}")
 #-------------------
 
 #-------------------

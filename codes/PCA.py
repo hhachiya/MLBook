@@ -6,7 +6,7 @@ import numpy as np
 class PCA:
     #-------------------
     # 1. 主成分分析の各種初期化
-    # X: 学習データ（データ数×次元数のnumpy.array）
+    # X: 学習データ（データ数×次元数のnumpy.ndarray）
     def __init__(self,X):
 
         # データの中心化
@@ -108,10 +108,10 @@ class PCA:
     
     #-------------------
     # 5. 寄与率と累積寄与率の計算
-    def compRatio(self):
+    def compContRatio(self):
 
         # 寄与率の計算
-        contRatio = self.L/np.sum(self.L)*100
+        contRatio = self.L/np.sum(self.L) * 100
 
         # 累積寄与率の計算
         cumContRatio = [np.sum(contRatio[:i+1]) for i in range(len(self.L))]
@@ -123,7 +123,7 @@ class PCA:
     # 6. 主成分負荷量の計算
     def compLoading(self):
         # 特徴量Xと主成分得点Fの各ペア間の相関係数
-        Z=np.concatenate([self.X,self.F],axis=1)
+        Z = np.concatenate([self.X,self.F],axis=1)
         PCL = np.corrcoef(Z.T,bias=1)[:self.X.shape[1],-self.F.shape[1]:]
         return PCL
     #-------------------

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-# 列ベクトル：2行1列のnumpy arrayを定義
+# 列ベクトル：2行1列のnumpy.ndarrayを定義
 w = np.array([ [5.0],[3.0] ])
 
-# 行ベクトル：1行2列のnumpy arrayを定義
+# 行ベクトル：1行2列のnumpy.ndarrayを定義
 x = np.array([ [1.0,5.0] ])
 
 # 内積の計算：x（行ベクトル）とw（列ベクトル）の掛け算

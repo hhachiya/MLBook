@@ -6,8 +6,8 @@ import matplotlib.pylab as plt
 class logisticRegression():
     #-------------------
     # 1. 学習データの設定とモデルパラメータの初期化
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def __init__(self,X,Y):
         # 学習データの設定
         self.X = X
@@ -33,7 +33,7 @@ class logisticRegression():
 
         # 予測の差の計算
         P,_ = self.predict(self.X)
-        error = (P - self.Y)
+        error = (P-self.Y)
         
         # パラメータの更新
         grad = 1/self.dNum*np.matmul(self.Z.T,error)
@@ -47,7 +47,7 @@ class logisticRegression():
 
     #-------------------
     # 3. 予測
-    # X: 入力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
     def predict(self,x):
         f_x = np.matmul(x,self.w) + self.b
         return 1/(1+np.exp(-f_x)),f_x
@@ -55,8 +55,8 @@ class logisticRegression():
     
     #-------------------
     # 4. 交差エントロピー損失の計算
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def CE(self,X,Y):
         P,_ = self.predict(X)
         return -np.mean(Y*np.log(P+self.smallV)+(1-Y)*np.log(1-P+self.smallV))
@@ -64,8 +64,8 @@ class logisticRegression():
     
     #-------------------
     # 5. 正解率の計算
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     # thre: 閾値（スカラー）
     def accuracy(self,X,Y,thre=0.5):
         P,_ = self.predict(X)
@@ -81,8 +81,8 @@ class logisticRegression():
     
     #------------------- 
     # 6. 真値と予測値のプロット（入力ベクトルが1次元の場合）
-    # X: 入力データ（次元数×データ数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     # xLabel: x軸のラベル（文字列）
     # yLabel: y軸のラベル（文字列）
     # fName: 画像の保存先（文字列）
@@ -114,8 +114,8 @@ class logisticRegression():
 
     #-------------------
     # 7. 真値と予測値のプロット（入力ベクトルが2次元の場合）
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     # xLabel: x軸のラベル（文字列）
     # yLabel: y軸のラベル（文字列）
     # title: タイトル（文字列）

@@ -22,8 +22,8 @@ class kernelFunc():
         
     #-------------------
     # ガウスカーネル
-    # X1: 入力データ（データ数×次元数のnumpy.array）
-    # X2: 入力データ（データ数×次元数のnumpy.array）
+    # X1: 入力データ（データ数×次元数のnumpy.ndarray）
+    # X2: 入力データ（データ数×次元数のnumpy.ndarray）
     def gauss(self,X1,X2):
         X1Num = len(X1)
         X2Num = len(X2)
@@ -31,22 +31,22 @@ class kernelFunc():
         # X1とX2の全ペア間の距離の計算
         X1 = np.tile(np.expand_dims(X1.T,axis=2),[1,1,X2Num])
         X2 = np.tile(np.expand_dims(X2.T,axis=1),[1,X1Num,1])
-        dist = np.sum(np.square(X1 - X2),axis=0)
+        dist = np.sum(np.square(X1-X2),axis=0)
         
         # グラム行列（X1のデータ数×X2のデータ数）
-        K = np.exp(-dist / (2 * (self.kernelParam ** 2)))
+        K = np.exp(-dist/(2*(self.kernelParam**2)))
         
         return K
     #-------------------
     
     #-------------------
     # 多項式カーネル
-    # X1: 入力データ（データ数×次元数のnumpy.array）
-    # X2: 入力データ（データ数×次元数のnumpy.array）
+    # X1: 入力データ（データ数×次元数のnumpy.ndarray）
+    # X2: 入力データ（データ数×次元数のnumpy.ndarray）
     def poly(self,X1,X2):
 
         # グラム行列（X1のデータ数×X2のデータ数）
-        K = (np.matmul(X1,X2.T) + 1)**self.kernelParam
+        K = (np.matmul(X1,X2.T)+1)**self.kernelParam
 
         return K
     #-------------------

@@ -7,8 +7,8 @@ class naiveBayes():
     #-------------------
     # 1. 学習データの初期化
     # X: 各文章の単語リスト（データ数のリスト）
-    # Y: 出力データ（データ数×1のnumpy.array）
-    # priors: 事前確率（1×カテゴリ数のnumpy.array）
+    # Y: 出力データ（データ数×1のnumpy.ndarray）
+    # priors: 事前確率（1×カテゴリ数のnumpy.ndarray）
     def __init__(self,X,Y,priors):
         
         # 学習データの設定
@@ -81,8 +81,8 @@ class naiveBayes():
     
     #-------------------
     # 5. 正解率の計算
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×1のnumpy.array）
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×1のnumpy.ndarray）
     def accuracy(self,X,Y):
         return np.sum(self.predict(X) - Y.T==0)/len(Y)
     #-------------------
@@ -90,7 +90,7 @@ class naiveBayes():
     #-------------------
     # 5. 予測結果のcsvファイルへの書き込み
     # X: 文章データ（データ数のリスト）
-    # Y: 真値（データ数×1のnumpy.array）
+    # Y: 真値（データ数×1のnumpy.ndarray）
     # fName：csvファイルの保存先（文字列）
     def writeResult2CSV(self,X,Y,fName="../results/sentimental_results.csv"):
         P = self.predict(X)

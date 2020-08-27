@@ -17,8 +17,8 @@ myModel.extractFactor(lowerDim=2)
 
 #-------------------
 # 3. 因子の表示
-print(f"因子負荷量：\nW=\n{np.round(myModel.W,decimals=2)}")
-print(f"独自因子の分散：\nE=\n{np.round(myModel.E,decimals=2)}")
+print(f"因子負荷量:\nW=\n{np.round(myModel.W,decimals=2)}")
+print(f"独自因子の分散:\nE=\n{np.round(myModel.E,decimals=2)}")
 #-------------------
 
 #-------------------
@@ -31,6 +31,6 @@ if myModel.lowerDim == 2:
 #-------------------
 # 5. 共通性と独自性の計算
 comVar,uniVar = myModel.compVariances()
-print(f"共通性：{np.round(comVar,decimals=2)}")
-print(f"独自性：{np.round(uniVar,decimals=2)}")
+print(f"共通性:{np.round(comVar,decimals=2)}")
+print(f"独自性:{np.round(uniVar,decimals=2)}")
 #-------------------

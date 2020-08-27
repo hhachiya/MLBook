@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-# 行列：3行2列のnumpy arrayをを定義
+# 行列：3行2列のnumpy.ndarrayをを定義
 X = np.array([ [1.0,2.0],[2.0,4.0],[3.0,6.0] ])
 
 # 1行目の行ベクトル(1行2列)の取り出し

@@ -8,7 +8,7 @@ import pdb
 class kmeans:
     #-------------------
     # 1. k-meansの各種初期化
-    # X: 学習データ（データ数×次元数のnumpy.array）
+    # X: 学習データ（データ数×次元数のnumpy.ndarray）
     # K: クラスター数（整数スカラー）
     def __init__(self,X,K=5):
         # パラメータの設定
@@ -16,7 +16,7 @@ class kmeans:
         self.K = K
         self.X = X
         
-        # カラーマップ
+        # カラーコードの設定
         self.cmap = ['#FF0000','#00B0F0','#FF00FF','#00FF00','#0000FF']
 
         # ランダムにクラスター中心を設定

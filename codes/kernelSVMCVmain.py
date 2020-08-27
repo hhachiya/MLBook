@@ -10,7 +10,7 @@ kernelType = 2
 #-------------------
 # 1. データの作成
 myData = data.classification(negLabel=-1.0,posLabel=1.0)
-myData.makeData(dataType=5)
+myData.makeData(dataType=4)
 #-------------------
 
 #-------------------
@@ -105,7 +105,7 @@ myModel.trainSoft(0.5)
 
 #-------------------
 # 6. SVMモデルの評価
-print(f"モデルパラメータ：\nw={myModel.w}\nb={myModel.b}")
+print(f"モデルパラメータ:\nw={myModel.w}\nb={myModel.b}")
 print(f"評価データの正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 

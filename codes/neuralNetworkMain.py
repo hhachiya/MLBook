@@ -5,7 +5,7 @@ import data
 
 #-------------------
 # 0. ハイパーパラメータの設定
-dataType = 6    # データの種類
+dataType = 5    # データの種類
 activeType = 2  # 活性化関数の種類
 hDim = 20       # 中間層のノード数
 alpha = 1       # 学習率
@@ -59,7 +59,7 @@ for ite in range(1001):
     teAcc.append(myModel.accuracy(Xte,Yte))
     
     # 評価の出力
-    if ite%100==0:
+    if ite%100 == 0:
         print(f"反復:{ite}")
         print(f"平均交差エントロピー損失={myModel.CE(Xte,Yte):.2f}")
         print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")

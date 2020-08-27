@@ -10,8 +10,8 @@ import copy
 class linearRegression():
     #-------------------
     # 学習データの初期化
-    # X: 入力データ（次元数×データ数のnumpy.array）
-    # Y: 出力データ（データ数×1のnumpy.array）
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
+    # Y: 出力データ（データ数×1のnumpy.ndarray）
     def __init__(self,X,Y):
         # 学習データの設定
         self.X = X
@@ -42,23 +42,23 @@ class linearRegression():
 
     #-------------------
     # 予測
-    # X: 入力データ（次元数×データ数のnumpy.array）
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
     def predict(self,x):
         return np.matmul(x,self.w) + self.b
     #-------------------
     
     #-------------------
     # 平均平方二乗誤差（Root Mean Squared Error）
-    # X: 入力データ（次元数×データ数のnumpy.array）
-    # Y: 出力データ（データ数×1のnumpy.array）
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
+    # Y: 出力データ（データ数×1のnumpy.ndarray）
     def RMSE(self,X,Y):
         return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
     #-------------------
 
     #-------------------
     # 決定係数
-    # X: 入力データ（次元数×データ数のnumpy.array）
-    # Y: 出力データ（データ数×1のnumpy.array）
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
+    # Y: 出力データ（データ数×1のnumpy.ndarray）
     def R2(self,X,Y):
         return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
     #-------------------
@@ -96,12 +96,12 @@ myModel.train()
 myModelOut = linearRegression(Xtr,YtrOut)
 myModelOut.train()
 print("【外れ値なし】")
-print(f"モデルパラメータ：\nw={myModel.w},\nb={myModel.b}")
+print(f"モデルパラメータ:\nw={myModel.w},\nb={myModel.b}")
 print(f"平方平均二乗誤差={myModel.RMSE(Xte,Yte):.2f}ドル")
 print(f"決定係数={myModel.R2(Xte,Yte):.2f}")
 
 print("【外れ値あり】")
-print(f"モデルパラメータ：\nw={myModelOut.w},\nb={myModelOut.b}")
+print(f"モデルパラメータ:\nw={myModelOut.w},\nb={myModelOut.b}")
 print(f"平方平均二乗誤差={myModelOut.RMSE(Xte,Yte):.2f}ドル")
 print(f"決定係数={myModelOut.R2(Xte,Yte):.2f}")
 #------------------- 

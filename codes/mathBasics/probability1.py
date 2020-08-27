@@ -7,6 +7,6 @@ X2 = np.random.binomial(1,6/13,10)
 X3 = np.random.binomial(1,6/13,10)
 
 # 標準出力
-print(f"データX1：\n{X1}")
-print(f"データX2：\n{X2}")
-print(f"データX3：\n{X3}")
+print(f"データX1:\n{X1}")
+print(f"データX2:\n{X2}")
+print(f"データX3:\n{X3}")

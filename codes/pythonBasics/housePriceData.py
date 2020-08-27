@@ -12,7 +12,7 @@ class housePriceData:
     #-------------------
     
     #-------------------
-    # 2. 建物の等級（MSSubClass）を限定した散布図（GrLivArea vs. SalePrice）をプロットするメソッド
+    # 2. 建物の等級（MSSubClass）を限定した散布図（横軸GrLivArea. 縦軸SalePrice）をプロットするメソッド
     # titles: タイトル（グラフ数のリスト）
     # levels: 建物の等級（グラフ数のリスト）
     def plotScatter(self,titles,levels):
@@ -31,7 +31,7 @@ class housePriceData:
         for ind in np.arange(len(titles)):
          
             # グラフの位置を設定
-            ax=fig.add_subplot(2,ncol,ind+1)
+            ax = fig.add_subplot(2,ncol,ind+1)
             
             # タイトルの設定
             ax.set_title(titles[ind])

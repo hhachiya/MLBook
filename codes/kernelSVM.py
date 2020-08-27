@@ -9,8 +9,8 @@ import matplotlib.pylab as plt
 class SVM():
     #-------------------
     # 1. 学習データの初期化
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     # kernelFunc: kernelFuncクラスのインスタンス
     def __init__(self,X,Y,spptThre=0.1,kernelFunc=None):
 
@@ -63,17 +63,17 @@ class SVM():
 
     #-------------------
     # 3. 予測
-    # X: 入力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
     def predict(self,x):
         x = self.kernelFunc.createMatrix(x,self.X)
-        y = np.matmul(x,self.w)+self.b
+        y = np.matmul(x,self.w) + self.b
         return np.sign(y),y
     #-------------------
     
     #-------------------
     # 4. 正解率の計算
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def accuracy(self,X,Y):
         predict,_ = self.predict(X)
         return np.sum(predict==Y)/len(X)
@@ -81,9 +81,9 @@ class SVM():
 
     #-------------------
     # 5. データと分類境界f(x)のプロット
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
-    # spptInds: サポートベクトルのインデックス（インデックス数のnumpy.array)
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
+    # spptInds: サポートベクトルのインデックス（インデックス数のnumpy.ndarray)
     # xLabel: x軸のラベル（文字列）
     # yLabel: y軸のラベル（文字列）
     # title: タイトル（文字列）

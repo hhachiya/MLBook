@@ -7,8 +7,8 @@ import matplotlib.pylab as plt
 class SVM():
     #-------------------
     # 1. 学習データの初期化
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def __init__(self,X,Y):
 
         # 学習データの設定
@@ -36,17 +36,17 @@ class SVM():
         A = cvxopt.matrix(self.Y.astype(float).T)
         b = cvxopt.matrix(0.0)
 
-        # 二次計画法
+        # 凸二次計画法
         sol = cvxopt.solvers.qp(P,q,G,h,A,b)
         self.lamb = np.array(sol['x'])
         # 'x'がlambdaに対応する
         
         # サポートベクトルのインデックス
-        self.spptInds = np.where(self.lamb > self.spptThre)[0]
+        self.spptInds = np.where(self.lamb>self.spptThre)[0]
 
         # wとbの計算
         self.w = np.matmul((self.lamb*self.Y).T,self.X).T
-        self.b = np.mean(self.Y[self.spptInds] - np.matmul(self.X[self.spptInds,:],self.w))
+        self.b = np.mean(self.Y[self.spptInds]-np.matmul(self.X[self.spptInds,:],self.w))
     #-------------------
 
     #-------------------
@@ -65,36 +65,36 @@ class SVM():
         G2 = np.diag(np.ones(self.dNum))
         G = cvxopt.matrix(np.concatenate([G1,G2],axis=0))
         h1 = np.zeros([self.dNum,1])
-        h2 = C*np.ones([self.dNum,1])
+        h2 = C * np.ones([self.dNum,1])
         h = cvxopt.matrix(np.concatenate([h1,h2],axis=0))
         A = cvxopt.matrix(self.Y.astype(float).T)
         b = cvxopt.matrix(0.0)
 
-        # 二次計画法
+        # 凸二次計画法
         sol = cvxopt.solvers.qp(P,q,G,h,A,b)
         self.lamb = np.array(sol['x'])
         # 'x'がlambdaに対応する
         
         # サポートベクトルのインデックス
-        self.spptInds = np.where(self.lamb > self.spptThre)[0]
+        self.spptInds = np.where(self.lamb>self.spptThre)[0]
         
         # wとbの計算
         self.w = np.matmul((self.lamb*self.Y).T,X).T
-        self.b = np.mean(self.Y[self.spptInds] - np.matmul(X[self.spptInds,:],self.w))
+        self.b = np.mean(self.Y[self.spptInds]-np.matmul(X[self.spptInds,:],self.w))
     #-------------------
     
     #-------------------
     # 3. 予測
-    # X: 入力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
     def predict(self,x):
-        y = np.matmul(x,self.w)+self.b
+        y = np.matmul(x,self.w) + self.b
         return np.sign(y),y
     #-------------------
     
     #-------------------
     # 4. 正解率の計算
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def accuracy(self,X,Y):
         predict,_ = self.predict(X)
         return np.sum(predict==Y)/len(X)
@@ -102,9 +102,9 @@ class SVM():
 
     #-------------------
     # 5. 真値と予測値のプロット（入力ベクトルが2次元の場合）
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
-    # spptInds:サポートベクトルのインデックス（インデックス数のnumpy.array)
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×１のnumpy.ndarray）
+    # spptInds:サポートベクトルのインデックス（インデックス数のnumpy.ndarray)
     # xLabel:x軸のラベル（文字列）
     # yLabel:y軸のラベル（文字列）
     # title:タイトル（文字列）

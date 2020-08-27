@@ -9,5 +9,5 @@ X = np.array([[170,60,80],[167,52,93],[174,57,85],[181,70,80],\
 corrcoef = np.corrcoef(X.T)
 
 # 標準出力
-print(f"データX：\n{X}\n")
-print(f"相関行列：\n{corrcoef}\n")
+print(f"データX:\n{X}\n")
+print(f"相関行列:\n{corrcoef}\n")

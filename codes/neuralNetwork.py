@@ -8,8 +8,8 @@ import pdb
 class neuralNetwork():
     #-------------------
     # 1. 学習データの初期化
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×次元数のnumpy.ndarray）
     # hDim: 中間層のノード数（整数スカラー）
     # activeType: 活性化関数の種類（1:シグモイド関数、2:ReLU関数）
     def __init__(self,X,Y,hDim=10,activeType=1):
@@ -61,21 +61,21 @@ class neuralNetwork():
         # 入力層と中間層の間のパラメータの更新
         if self.activeType == 1:  # シグモイド関数
             term1 = np.matmul(error,self.w2.T)
-            term2 = term1*(1-H)*H
-            grad1 = 1/dNum*np.matmul(Z.T,term2)
+            term2 = term1 * (1-H) * H
+            grad1 = 1/dNum * np.matmul(Z.T,term2)
 
         elif self.activeType == 2: # ReLU関数
             Ms = np.ones_like(S)
             Ms[S<=0] = 0
             term1 = np.matmul(error,self.w2.T)
-            grad1 = 1/dNum*np.matmul(Z.T,term1*Ms)
+            grad1 = 1/dNum * np.matmul(Z.T,term1*Ms)
 
         V1 -= alpha * grad1
 
         # 中間層と出力層の間のパラメータの更新
         # 行列Xに「1」の要素を追加
         H = np.append(H,np.ones([dNum,1]),axis=1)
-        grad2 = 1/dNum*np.matmul(H.T,error)
+        grad2 = 1/dNum * np.matmul(H.T,error)
         V2 -= alpha * grad2
         
         # パラメータw1,b1,w2,b2の決定
@@ -108,23 +108,23 @@ class neuralNetwork():
         # 入力層と中間層の間のパラメータの更新
         if self.activeType == 1:  # シグモイド活性化関数
             term1 = np.matmul(error,self.w2.T)
-            term2 = term1*(1-H)*H
-            grad1 = 1/dNum*np.matmul(Z.T,term2)
+            term2 = term1 * (1-H) * H
+            grad1 = 1/dNum * np.matmul(Z.T,term2)
 
         elif self.activeType == 2: # ReLU活性化関数
             # マスクの作成
             Ms = np.ones_like(S)
             Ms[S<=0] = 0
 
-            term1 = np.matmul(error,self.w2.T)*Md
-            grad1 = 1/dNum*np.matmul(Z.T,term1*Ms)
+            term1 = np.matmul(error,self.w2.T) * Md
+            grad1 = 1/dNum * np.matmul(Z.T,term1*Ms)
             
         V1 -= alpha * grad1
 
         # 中間層と出力層の間のパラメータの更新
         # 行列Xに「1」の要素を追加
         H = np.append(H,np.ones([dNum,1]),axis=1)
-        grad2 = 1/dNum*np.matmul(H.T,error)
+        grad2 = 1/dNum * np.matmul(H.T,error)
         V2 -= alpha * grad2
     
         # パラメータw1,b1,w2,b2の決定
@@ -158,21 +158,21 @@ class neuralNetwork():
         # 入力層と中間層の間のパラメータの更新
         if self.activeType == 1:     # シグモイド活性化関数
             term1 = np.matmul(error,self.w2.T)
-            term2 = term1*(1-H)*H
-            grad1 = 1/dNum*np.matmul(Z.T,term2)
+            term2 = term1 * (1-H) * H
+            grad1 = 1/dNum * np.matmul(Z.T,term2)
 
         elif self.activeType == 2: # ReLU活性化関数
             # マスクの作成
             Ms = np.ones_like(S)
             Ms[S<=0] = 0
                     
-            term1 = np.matmul(error,self.w2.T)*Md
-            grad1 = 1/dNum*np.matmul(Z.T,term1*Ms)
+            term1 = np.matmul(error,self.w2.T) * Md
+            grad1 = 1/dNum * np.matmul(Z.T,term1*Ms)
 
         #-------------------
         # Adamによるパラメータの更新
-        self.grad1m = beta*self.grad1m + (1-beta)*grad1
-        self.grad1V = beta*self.grad1V + (1-beta)*grad1**2
+        self.grad1m = beta * self.grad1m + (1-beta) * grad1
+        self.grad1V = beta * self.grad1V + (1-beta) * grad1**2
         mhat = self.grad1m/(1-beta)
         Vhat = self.grad1V/(1-beta)
         
@@ -182,12 +182,12 @@ class neuralNetwork():
         # 中間層と出力層の間のパラメータの更新
         # 行列Xに「1」の要素を追加
         H = np.append(H,np.ones([dNum,1]),axis=1)
-        grad2 = 1/dNum*np.matmul(H.T,error)
+        grad2 = 1/dNum * np.matmul(H.T,error)
         
         #-------------------
         # Adamによるパラメータの更新
-        self.grad2m = beta*self.grad2m + (1-beta)*grad2
-        self.grad2V = beta*self.grad2V + (1-beta)*grad2**2
+        self.grad2m = beta * self.grad2m + (1-beta) * grad2
+        self.grad2V = beta * self.grad2V + (1-beta) * grad2**2
         mhat = self.grad2m/(1-beta)
         Vhat = self.grad2V/(1-beta)
         
@@ -203,7 +203,7 @@ class neuralNetwork():
 
     #-------------------
     # 3. 予測
-    # X: 入力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
     def predict(self,x):
         s = np.matmul(x,self.w1) + self.b1
         H = self.activation(s)
@@ -214,14 +214,14 @@ class neuralNetwork():
     
     #-------------------
     # 3.1. 予測
-    # X：入力データ（データ数×次元数のnumpy.array）
+    # X：入力データ（データ数×次元数のnumpy.ndarray）
     # rate：ノードの選択確率（実数スカラー）
     def predictDropout(self,x,rate):
         # ドロップアウト用のマスクの作成
         M = np.random.binomial(1,rate,size=[len(x),self.hDim])
     
         s = np.matmul(x,self.w1) + self.b1
-        H = self.activation(s)*M
+        H = self.activation(s) * M
         f_x = np.matmul(H,self.w2) + self.b2
 
         return 1/(1+np.exp(-f_x)),H,s,M
@@ -229,7 +229,7 @@ class neuralNetwork():
 
     #-------------------
     # 4. 活性化関数
-    # s: 中間データ（データ数×次元数のnumpy.array）
+    # s: 中間データ（データ数×次元数のnumpy.ndarray）
     def activation(self,s):
     
         if self.activeType == 1:  # シグモイド関数
@@ -243,9 +243,9 @@ class neuralNetwork():
     #-------------------
 
     #-------------------
-    # 5. 交差エントロピー損失（cross entropy loss）
-    # X: 入力データ（次元数×データ数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # 5. 交差エントロピー損失
+    # X: 入力データ（次元数×データ数のnumpy.ndarray）
+    # Y: 出力データ（データ数×次元数のnumpy.ndarray）
     def CE(self,X,Y):
         P,_,_ = self.predict(X)
 
@@ -259,8 +259,8 @@ class neuralNetwork():
 
     #-------------------
     # 6. 正解率の計算
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×次元数のnumpy.ndarray）
     # thre: 閾値（スカラー）
     def accuracy(self,X,Y,thre=0.5):
         P,_,_= self.predict(X)
@@ -280,8 +280,8 @@ class neuralNetwork():
 
     #-------------------
     # 6.1 適合率、再現率、F1スコアの計算
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×次元数のnumpy.ndarray）
     # thre: 閾値（スカラー）
     def eval(self,X,Y,thre=0.5):
         P,_,_= self.predict(X)
@@ -308,8 +308,8 @@ class neuralNetwork():
     
     #-------------------
     # 6.2. 混同行列の計算
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×次元数のnumpy.ndarray）
     # thre: 閾値（スカラー）
     def confusionMatrix(self,X,Y,thre=0.5):
         P,_,_= self.predict(X)
@@ -330,8 +330,8 @@ class neuralNetwork():
 
     #------------------- 
     # 7. 真値と予測値のプロット（入力ベクトルが1次元の場合）
-    # X:入力データ（次元数×データ数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
+    # X:入力データ（次元数×データ数のnumpy.ndarray）
+    # Y:出力データ（データ数×次元数のnumpy.ndarray）
     # xLabel:x軸のラベル（文字列）
     # yLabel:y軸のラベル（文字列）
     # fName：画像の保存先（文字列）
@@ -363,8 +363,8 @@ class neuralNetwork():
 
     #-------------------
     # 8. 真値と予測値のプロット（入力ベクトルが2次元の場合）
-    # X:入力データ（データ数×次元数のnumpy.array）
-    # Y:出力データ（データ数×１のnumpy.array）
+    # X:入力データ（データ数×次元数のnumpy.ndarray）
+    # Y:出力データ（データ数×次元数のnumpy.ndarray）
     # xLabel:x軸のラベル（文字列）
     # yLabel:y軸のラベル（文字列）
     # title:タイトル（文字列）

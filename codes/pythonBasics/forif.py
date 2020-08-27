@@ -18,7 +18,7 @@ print("5以上の値",passed_values)
 
 #-------------------
 # リスト内包表記のfor文とif文
-passed_values = values[[True if values[ind] > 5 else False for ind in np.arange(len(values))]]
+passed_values = values[[True if values[ind]>5 else False for ind in np.arange(len(values))]]
 
 # 結果を標準出力
 print("5以上の値",passed_values)

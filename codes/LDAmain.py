@@ -22,7 +22,7 @@ Yte = myData.Y[dtrNum:]
 #-------------------
 '''
 #-------------------
-# 2.5 アンダーサンプリング
+# アンダーサンプリング
 
 # カテゴリの最小のデータ数
 minNum = np.min([np.sum(Ytr==-1),np.sum(Ytr==1)])
@@ -45,7 +45,7 @@ myModel.train()
 
 #-------------------
 # 4. 線形判別モデルの評価
-print(f"モデルパラメータ：\nw={myModel.w},\n平均：{myModel.m}")
+print(f"モデルパラメータ:\nw={myModel.w},\n平均m={myModel.m}")
 print(f"正解率={myModel.accuracy(Xte,Yte):.2f}")
 #-------------------
 

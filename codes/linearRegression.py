@@ -5,8 +5,8 @@ import matplotlib.pylab as plt
 class linearRegression():
     #-------------------
     # 1. 学習データの初期化
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×1のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×1のnumpy.ndarray）
     def __init__(self,X,Y):
         # 学習データの設定
         self.X = X
@@ -22,10 +22,10 @@ class linearRegression():
         Z = np.concatenate([self.X,np.ones([self.dNum,1])],axis=1)
 
         # 分母の計算
-        ZZ = 1/self.dNum*np.matmul(Z.T,Z)
+        ZZ = 1/self.dNum * np.matmul(Z.T,Z)
 
         # 分子の計算
-        ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
+        ZY = 1/self.dNum * np.matmul(Z.T,self.Y)
 
         # パラメータvの最適化
         v = np.matmul(np.linalg.inv(ZZ),ZY)
@@ -36,17 +36,17 @@ class linearRegression():
     #-------------------
     
     #-------------------
-    # 2.5. L2ノルム正則化最小二乗法を用いてモデルパラメータを最適化
+    # L2ノルム正則化最小二乗法を用いてモデルパラメータを最適化
     # lamb: 正則化の重み係数（実数スカラー）
     def trainRegularized(self,lamb=0.1):
         # 行列Xに「1」の要素を追加
         Z = np.concatenate([self.X,np.ones([self.dNum,1])],axis=1)
 
         # 分母の計算
-        ZZ = 1/self.dNum*np.matmul(Z.T,Z) + lamb*np.eye(self.xDim)
+        ZZ = 1/self.dNum * np.matmul(Z.T,Z) + lamb * np.eye(self.xDim)
 
         # 分子の計算
-        ZY = 1/self.dNum*np.matmul(Z.T,self.Y)
+        ZY = 1/self.dNum * np.matmul(Z.T,self.Y)
 
         # パラメータvの最適化
         v = np.matmul(np.linalg.inv(ZZ),ZY)
@@ -58,31 +58,31 @@ class linearRegression():
 
     #-------------------
     # 3. 予測
-    # X: 入力データ（データ数×次元数のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
     def predict(self,x):
         return np.matmul(x,self.w) + self.b
     #-------------------
     
     #-------------------
-    # 4. 平均平方二乗誤差（Root Mean Squared Error）
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # 4. 平方平均二乗誤差（Root Mean Squared Error）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def RMSE(self,X,Y):
-        return np.sqrt(np.mean(np.square(self.predict(X) - Y)))
+        return np.sqrt(np.mean(np.square(self.predict(X)-Y)))
     #-------------------
         
     #-------------------
     # 5. 決定係数の計算
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     def R2(self,X,Y):
-        return 1 - np.sum(np.square(self.predict(X) - Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
+        return 1 - np.sum(np.square(self.predict(X)-Y))/np.sum(np.square(Y-np.mean(Y,axis=0)))
     #-------------------
     
     #------------------- 
     # 6. データと線形モデルのプロット
-    # X: 入力データ（データ数×次元数のnumpy.array）
-    # Y: 出力データ（データ数×１のnumpy.array）
+    # X: 入力データ（データ数×次元数のnumpy.ndarray）
+    # Y: 出力データ（データ数×１のnumpy.ndarray）
     # xLabel: x軸のラベル（文字列）
     # yLabel: y軸のラベル（文字列）
     # fName: 画像の保存先（文字列）

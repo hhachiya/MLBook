@@ -10,7 +10,7 @@ class QLearning:
     # env: 強化学習タスク環境名
     # gamma: 割引率（実数スカラー）
     # nSplit: 状態の分割数（整数スカラー）
-    def __init__(self,env,gamma = 0.99,nSplit=50):
+    def __init__(self,env,gamma=0.99,nSplit=50):
     
         # 環境の読み込み
         self.env = gym.make(env)
@@ -27,7 +27,7 @@ class QLearning:
 
         # 状態の分割数
         self.nSplit = nSplit
-        self.cellWidth = (self.stateMax - self.stateMin)/self.nSplit
+        self.cellWidth = (self.stateMax-self.stateMin)/self.nSplit
         
         # Qテーブルの初期化
         self.Q = np.zeros((self.nSplit,self.nSplit,self.nAction))
@@ -106,7 +106,7 @@ class QLearning:
         Qvalue = self.Q[stateInd[0]][stateInd[1]][action]
         
         # Q関数の更新
-        self.Q[stateInd[0]][stateInd[1]][action] = Qvalue + alpha * (reward + self.gamma * next_max_Qvalue - Qvalue)
+        self.Q[stateInd[0]][stateInd[1]][action] = Qvalue + alpha * (reward+self.gamma*next_max_Qvalue-Qvalue)
     #------------------
 
     #------------------

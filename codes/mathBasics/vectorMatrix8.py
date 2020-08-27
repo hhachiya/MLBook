@@ -2,15 +2,15 @@
 import numpy as np
 
 # 行列Aの定義
-A = np.array([ [3,1],[1,3]])
+A = np.array([ [3,1],[1,3] ])
 
 # 固有値問題
 L,V = np.linalg.eig(A)
 
 # 標準出力
-print(f"行列Aの固有値：\n{L}\n")
+print(f"行列Aの固有値:\n{L}\n")
 
-print(f"行列Aの固有ベクトル：\n{V}\n")
+print(f"行列Aの固有ベクトル:\n{V}\n")
 
 print(f"固有ベクトルの内積:{np.matmul(V[:,[0]].T,V[:,[1]])}\n")
 

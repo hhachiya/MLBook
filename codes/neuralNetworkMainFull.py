@@ -67,7 +67,7 @@ batchInd = 0
 
 for ite in range(1001):
     # インデックスのシャッフルと初期化
-    if (ite==0) or (batchInd+batchSize > dtrNum):
+    if (ite==0) or (batchInd+batchSize>=dtrNum):
         randInd = np.random.permutation(dtrNum)
         batchInd = 0
 
@@ -169,13 +169,13 @@ if dataType == 7:
 #-------------------
 # 7. 適合率、再現率、F1スコアの計算
 precision,recall,f1 = myModel.eval(Xte,Yte)
-print(f"適合率\t：{np.round(precision,2)}")
-print(f"再現率\t：{np.round(recall,2)}")
-print(f"F1\t：{np.round(f1,2)}")
+print(f"適合率\t:{np.round(precision,2)}")
+print(f"再現率\t:{np.round(recall,2)}")
+print(f"F1\t:{np.round(f1,2)}")
 #-------------------
 
 #-------------------
 # 8. 混合行列
 cm = myModel.confusionMatrix(Xte,Yte)
-print(f"混合行列：\n{cm}")
+print(f"混合行列:\n{cm}")
 #-------------------
