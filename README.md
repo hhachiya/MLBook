@@ -1,10 +1,11 @@
 # ゼロからつくるPython機械学習プログラミング入門 
 
+<!--
 ## コード一覧
 ### Chapter 2 Python入門
 - [散布図のプロット](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/scatterPlot1.py)
 - [for文とif文の例](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/forif.py)
-作成中
+-->
 
 ## ツールのリンク
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads)
