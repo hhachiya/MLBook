@@ -1,7 +1,7 @@
 # MLBook
 
 ## ツールのリンク
-- [Anaconda](https://www.anaconda.com/download/)
+- [Anaconda](https://www.anaconda.com/products/individual#Downloads)
 - [OpenAI Gym](https://gym.openai.com/)
 
 ## データのリンク
