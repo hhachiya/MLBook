@@ -1,4 +1,4 @@
-# MLBook
+# 機械学習スタートアップシリーズ ゼロからつくるPython機械学習プログラミング入門 
 
 ## ツールのリンク
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads)
