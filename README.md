@@ -2,7 +2,7 @@
 
 ### コード一覧
 Chapter 2 Python入門
-- [散布図のプロット（scatterPlot1.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/scatterPlot1.py){:target="_blank"}
+- [散布図のプロット（scatterPlot1.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/scatterPlot1.py)
 - [通常のfor文とリスト内包表記（forif.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/forif.py)
 - [散布図をプロットするクラスの定義（housePriceData.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/housePriceData.py)
 - [クラスのインスタンス化と実行例（housePriceDataMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/housePriceDataMain.py)
@@ -24,6 +24,13 @@ Chapter 3 数学のおさらい
 - [平均値と中央値（statistics1.py）](https://github.com/hhachiya/MLBook/blob/master/codes/mathBasics/statistics1.py)
 - [分散共分散行列（statistics2.py）](https://github.com/hhachiya/MLBook/blob/master/codes/mathBasics/statistics2.py)
 - [相関行列（statistics3.py）](https://github.com/hhachiya/MLBook/blob/master/codes/mathBasics/statistics3.py)
+
+Chapter 4 回帰分析
+- [線形回帰のクラス（linearRegression.py）](https://github.com/hhachiya/MLBook/blob/master/codes/linearRegression.py)
+- [線形回帰のメイン（linearRegressionMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/linearRegressionMain.py)
+- [ロジスティック回帰のクラス（logisticRegression.py）](https://github.com/hhachiya/MLBook/blob/master/codes/logisticRegression.py)
+- [ロジスティック回帰のメイン（logisticRegressionMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/logisticRegressionMain.py)
+
 
 ### ツールのリンク
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads)
