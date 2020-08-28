@@ -36,6 +36,8 @@
 - [手描き文字画像データ](http://yann.lecun.com/exdb/mnist/)
 - [レビューデータ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 
+## 正誤表
+
 ## 参考資料のリンク
 - [The Matrix Cookbook](https://www2.imm.dtu.dk/pubdb/edoc/imm3274.pdf)
 
