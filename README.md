@@ -55,8 +55,8 @@ Chapter 7 ニューラルネットワーク
 - [MNISTデータを用いたニューラルネットワークのメイン（neuralNetworkMainFull.py）](https://github.com/hhachiya/MLBook/blob/master/codes/neuralNetworkMainFull.py)
 
 Chapter 8 強化学習
-- [Q学習のクラス（Qlearning.py）](https://github.com/hhachiya/MLBook/blob/master/codes/Qlearning.py)
-- [Q学習のメイン（QlearningMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/QlearningMain.py)
+- [Q学習のクラス（QLearning.py）](https://github.com/hhachiya/MLBook/blob/master/codes/QLearning.py)
+- [Q学習のメイン（QLearningMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/QLearningMain.py)
 
 Chapter 9 教師なし学習
 - [主成分分析のクラス（PCA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/PCA.py)
