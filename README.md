@@ -31,6 +31,40 @@ Chapter 4 回帰分析
 - [ロジスティック回帰のクラス（logisticRegression.py）](https://github.com/hhachiya/MLBook/blob/master/codes/logisticRegression.py)
 - [ロジスティック回帰のメイン（logisticRegressionMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/logisticRegressionMain.py)
 
+Chapter 5 分類
+- [線形判別分析のクラス（LDA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/LDA.py)
+- [線形判別分析のメイン（LDAmain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/LDAmain.py)
+- [サポートベクトルマシンのクラス（SVM.py）](https://github.com/hhachiya/MLBook/blob/master/codes/SVM.py)
+- [サポートベクトルマシンのメイン（SVMmain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/SVMmain.py)
+- [ナイーブベイズのクラス（naiveBayes.py）](https://github.com/hhachiya/MLBook/blob/master/codes/naiveBayes.py)
+- [ナイーブベイズのメイン（naiveBayesMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/naiveBayesMain.py)
+- [決定木のクラス（decisionTree.py）](https://github.com/hhachiya/MLBook/blob/master/codes/decisionTree.py)
+- [決定木のメイン（decisionTreeMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/decisionTreeMain.py)
+
+Chapter 6 カーネルモデル
+- [カーネル行列を作成するクラス（kernelFunc.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kernelFunc.py)
+- [カーネルサポートベクトルマシンのクラス（SVM.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kernelSVM.py)
+- [カーネルサポートベクトルマシンのメイン（SVMmain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kernelSVMmain.py)
+- [モデル選択ありのカーネルサポートベクトルマシンのメイン（kernelSVMCVmain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kernelSVMCVmain.py)
+
+Chapter 7 ニューラルネットワーク
+- [ニューラルネットワークのクラス（neuralNetwork.py）](https://github.com/hhachiya/MLBook/blob/master/codes/neuralNetwork.py)
+- [ニューラルネットワークのメイン（neuralNetworkMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/neuralNetworkMain.py)
+- [MNISTデータの読み込み（MNIST1.py）](https://github.com/hhachiya/MLBook/blob/master/data/MNIST/MNIST1.py)
+- [MNISTデータの読み込みとone-hot表現（MNIST2.py）](https://github.com/hhachiya/MLBook/blob/master/data/MNIST/MNIST2.py)
+- [MNISTデータを用いたニューラルネットワークのメイン（neuralNetworkMainFull.py）](https://github.com/hhachiya/MLBook/blob/master/codes/neuralNetworkMainFull.py)
+
+Chapter 8 強化学習
+- [Q学習のクラス（Qlearning.py）](https://github.com/hhachiya/MLBook/blob/master/codes/Qlearning.py)
+- [Q学習のメイン（QlearningMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/QlearningMain.py)
+
+Chapter 9 教師なし学習
+- [主成分分析のクラス（PCA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/PCA.py)
+- [主成分分析のメイン（PCAMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/PCAMain.py)
+- [因子分析のクラス（FA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/FA.py)
+- [因子分析のメイン（FAMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/FAMain.py)
+- [k平均法のクラス（kmeans.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kmeans.py)
+- [k平均法のメイン（kmeansMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kmeansMain.py)
 
 ### ツールのリンク
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads)
