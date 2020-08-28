@@ -62,7 +62,7 @@ Chapter 9 教師なし学習
 - [主成分分析のクラス（PCA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/PCA.py)
 - [主成分分析のメイン（PCAMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/PCAMain.py)
 - [因子分析のクラス（FA.py）](https://github.com/hhachiya/MLBook/blob/master/codes/FA.py)
-- [因子分析のメイン（FAMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/FAMain.py)
+- [因子分析のメイン（FAmain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/FAMain.py)
 - [k平均法のクラス（kmeans.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kmeans.py)
 - [k平均法のメイン（kmeansMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kmeansMain.py)
 
