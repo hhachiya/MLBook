@@ -2,7 +2,7 @@
 
 ### コード一覧
 Chapter 2 Python入門
-- [散布図のプロット（scatterPlot1.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/scatterPlot1.py)
+- [散布図のプロット（scatterPlot1.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/scatterPlot1.py){:target="_blank"}
 - [通常のfor文とリスト内包表記（forif.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/forif.py)
 - [散布図をプロットするクラスの定義（housePriceData.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/housePriceData.py)
 - [クラスのインスタンス化と実行例（housePriceDataMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/pythonBasics/housePriceDataMain.py)
