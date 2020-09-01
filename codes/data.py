@@ -243,7 +243,7 @@ class decisionTree:
 
         # テニスをするか否か
         if dataType == 1:
-            df = pd.read_csv(f'{self.path}/playTennis.csv')
+            df = pd.read_csv('f{self.path}/playTennis.csv')
 
         # 動物の種類
         elif dataType == 2:
