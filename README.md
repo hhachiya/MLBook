@@ -91,7 +91,7 @@
 - [k平均法のメイン（kmeansMain.py）](https://github.com/hhachiya/MLBook/blob/master/codes/kmeansMain.py)
 </details>
 
-### コード一覧（Jupyter Notebookバージョン：[くろたんく様提供](https://github.com/blacktanktop)）
+#### Jupyter Notebookバージョン（[くろたんく様提供](https://github.com/blacktanktop)）
 <details>
   <summary>Chapter 4 回帰分析</summary>
   
