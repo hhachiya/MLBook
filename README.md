@@ -111,8 +111,8 @@
   
 - [線形判別分析](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/LDA.ipynb)
 - [サポートベクトルマシン](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/SVM.ipynb)
-- [ナイーブベイズ](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/decisionTree.ipynb)
-- [決定木](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/naiveBayes.ipynb)
+- [ナイーブベイズ](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/naiveBayes.ipynb)
+- [決定木](https://github.com/hhachiya/MLBook/blob/master/notebook/chp5/decisionTree.ipynb)
 </details>
 
 <details>
