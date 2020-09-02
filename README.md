@@ -1,5 +1,12 @@
 ## ゼロからつくるPython機械学習プログラミング入門 
-[著者：八谷大岳，出版社：講談社](https://bookclub.kodansha.co.jp/product?item=0000276037)
+<img src="https://raw.githubusercontent.com/hhachiya/MLBook/master/others/cover_img.jpg" width="100" align="left">
+機械学習スタートアップシリーズ　ゼロからつくるＰｙｔｈｏｎ機械学習プログラミング入門
+
+著者：八谷大岳，出版社：講談社
+
+[講談社Book倶楽部](https://bookclub.kodansha.co.jp/product?item=0000276037)
+
+<br clear="left">
 
 ### コード一覧
 <details>
