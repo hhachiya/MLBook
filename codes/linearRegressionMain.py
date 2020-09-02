@@ -7,6 +7,10 @@ import data
 # 1. データの作成
 myData = data.regression()
 myData.makeData(dataType=1)
+
+# # 標準化
+# myData.X = (myData.X-np.mean(myData.X,axis=0))/np.std(myData.X,axis=0)
+# myData.Y = (myData.Y-np.mean(myData.Y,axis=0))/np.std(myData.Y,axis=0)
 #-------------------
 
 #-------------------
