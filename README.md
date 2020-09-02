@@ -1,4 +1,5 @@
 ## ゼロからつくるPython機械学習プログラミング入門 
+[著者：八谷大岳，出版社：講談社](https://bookclub.kodansha.co.jp/product?item=0000276037)
 
 ### コード一覧
 <details>
