@@ -146,11 +146,11 @@
 - [Anaconda](https://www.anaconda.com/products/individual#Downloads)
 - [CVXOPT](https://cvxopt.org/)
 - [Jupyter notebook](https://jupyter.org/)
-- [OpenAI Gym](https://gym.openai.com/)
+- [OpenAI Gym](https://github.com/openai/gym)
 
 ### データのリンク
 - [物件価格データ](http://www.kaggle.com/c/house-prices-advanced-regression-techniques)
-- [手描き文字画像データ](http://yann.lecun.com/exdb/mnist/)
+- [手描き文字画像データ](https://github.com/cvdfoundation/mnist)
 - [レビューデータ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 
 ### 正誤表
