@@ -154,7 +154,7 @@
 - [レビューデータ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
 
 ### 正誤表
-- [2020年8月28日更新](https://github.com/hhachiya/MLBook/blob/master/others/errata.pdf)
+- [2024年1月17日更新](https://github.com/hhachiya/MLBook/blob/master/others/errata.pdf)
 
 ### 参考資料のリンク
 - [The Matrix Cookbook](https://www2.imm.dtu.dk/pubdb/edoc/imm3274.pdf)
